@@ -5,8 +5,8 @@ using UnityEngine;
 public class LedgeChecker : MonoBehaviour
 {
     public Transform handPos, standPos;
-    public float yOffset = 6f;
-    public float zOffset = 6f;
+    public float yOffset = -1f;
+    public float zOffset = 2f;
 
     private Vector3 newHandPos;
 
