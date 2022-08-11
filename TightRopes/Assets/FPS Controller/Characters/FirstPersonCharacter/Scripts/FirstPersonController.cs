@@ -71,19 +71,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetButtonDown("Crouch"))
             {
                 crouching = true;
                 m_IsWalking = false;
                 
             }
-            if (Input.GetKeyUp(KeyCode.LeftControl))
+            if (Input.GetButtonUp("Crouch"))
             {
                 crouching=false;
                 m_IsWalking = true;
 
             }
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetButtonDown("Prone"))
             {
                 prone = true;
                 
@@ -91,7 +91,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
             }
-            if (Input.GetKeyUp(KeyCode.C))
+            if (Input.GetButtonUp("Prone"))
             {
                 prone = false;
                 m_IsWalking = true;

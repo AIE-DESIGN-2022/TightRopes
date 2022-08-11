@@ -303,6 +303,12 @@ MonoBehaviour:
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
   armPos: {fileID: 0}
+  arms: {fileID: 0}
+  crouching: 0
+  currentScale: {x: 0, y: 0, z: 0}
+  prone: 0
+  crouchSpeed: 0
+  proneSpeed: 0
 --- !u!54 &2451865579362001687
 Rigidbody:
   m_ObjectHideFlags: 0
