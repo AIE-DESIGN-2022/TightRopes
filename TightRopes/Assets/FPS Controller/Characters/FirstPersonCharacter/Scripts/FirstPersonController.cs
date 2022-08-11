@@ -41,12 +41,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+       
         public Transform armPos;
         public GameObject arms;
+        public bool crouching = false;
+        public Vector3 currentScale;
+        public bool prone = false;
 
+        
+        public float crouchSpeed;
+        public float proneSpeed;
         // Use this for initialization
         private void Start()
         {
+            currentScale = transform.localScale;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -63,9 +71,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
+                crouching = true;
+                m_IsWalking = false;
+                
+            }
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                crouching=false;
+                m_IsWalking = true;
+
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                prone = true;
+                
+                m_IsWalking = false;
+
+
+            }
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                prone = false;
+                m_IsWalking = true;
+                
 
             }
             RotateView();
@@ -93,6 +123,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             arms.transform.position = armPos.position;
             arms.transform.rotation = armPos.rotation;
+
+            if (crouching && !prone)
+            {
+              
+                transform.localScale = new Vector3(0,0.75f,0); 
+            }
+            else if (prone && !crouching)
+            {
+
+                transform.localScale = new Vector3(0, 0.5f, 0);
+            }
+            else
+            {
+                transform.localScale = currentScale;
+            }
+
         }
 
 
@@ -198,18 +244,48 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
             {
-                m_Camera.transform.localPosition =
-                    m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+                if (m_IsWalking)
+                {
+
+                    m_Camera.transform.localPosition =
+                        m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
+                                          (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                    newCameraPosition = m_Camera.transform.localPosition;
+                    newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+                }
+                else if (crouching)
+                {
+                    
+                      m_Camera.transform.localPosition =
+                        m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
+                                          (speed* 1000 * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                    newCameraPosition = m_Camera.transform.localPosition;
+                    newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+                }
+                else if (prone)
+                {
+                    
+                    m_Camera.transform.localPosition =
+                                      m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
+                                                        (speed *2000* (m_IsWalking ? 1f : m_RunstepLenghten)));
+                    newCameraPosition = m_Camera.transform.localPosition;
+                    newCameraPosition.x = m_Camera.transform.localPosition.x - m_JumpBob.Offset();
+                }
+                else
+                {
+                    m_Camera.transform.localPosition =
+                        m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
+                                          (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+                    newCameraPosition = m_Camera.transform.localPosition;
+                    newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
+                }
             }
             else
             {
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
+                 m_Camera.transform.localPosition = newCameraPosition;
             }
-            m_Camera.transform.localPosition = newCameraPosition;
         }
 
 
@@ -228,6 +304,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            if (crouching)
+            {
+                speed = crouchSpeed;
+            }
+            if (prone)
+            {
+                speed = proneSpeed;
+            }
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
