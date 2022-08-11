@@ -9,6 +9,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     public Vector2 LookValue { get; private set; }
     public bool IsSprinting { get; private set; }
+    public bool jump { get; private set; }
     private void Start()
     {
         controls = new Controls();
@@ -29,5 +30,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnLook(InputAction.CallbackContext context)
     {
         LookValue = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed) jump = true;
+        else jump = false;
     }
 }
