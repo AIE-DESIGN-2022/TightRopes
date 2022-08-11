@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -42,6 +43,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        [Header("Camera positions")]
+        public List<Transform> playerPOS;
+        public Transform crouchPos;
+        public Transform standPos;
+        public Transform crawlPos;
+        public bool crouched = false;
+
+
         // Use this for initialization
         private void Start()
         {
@@ -81,6 +90,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+         if(Input.GetKeyDown(KeyCode.LeftControl) && !crouched)
+            {
+                crouched = true;
+            }
         }
 
 
