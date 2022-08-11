@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Objects")]
-    public Camera camera;
+    
     public GameObject Arms;
 
     [Header("Bools")]
@@ -14,77 +14,76 @@ public class PlayerController : MonoBehaviour
     public bool isCrouched;
     public bool isMoving;
     public bool isCrawling;
-    public bool isGrounded;
 
-    [Header("floats")]
+    [Header("speeds")]
     public float walkSpeed;
     public float sprintSpeed;
+    public float gravity = -9.81f;
+    public float jumpHeight = 0.001f;
 
-    [Header("Camera contols")]
-    public float Xsensitivity;
-    public float Ysensitivity;
-    public float xMin = -360;
-    public float xMax = 360;
-    public float yMin = -75;
-    public float yMax = 75;
-    float xRot;
-    float yRot;
-
-
-
-    [Header("Camera positions")]
+    [Header("Grounding")]
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    public bool isGrounded;
     public List<Transform> playerPOS;
-    public Transform crouchPos;
-    public Transform standPos;
-    public Transform crawlPos;
+
+    [Header("Ledgegrabs")]
+    private bool _grabbedLedge;
+    private LedgeChecker _activeLedge;
+
+    [Header("Vectors")]
+    Vector3 velocity;
 
     [Header("Scripts")]
     private InputReader inputReader;
-    private CharacterController characterController;
+    public CharacterController Controller;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         inputReader = GetComponent<InputReader>();
-        characterController = GetComponent<CharacterController>();
+        Controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        Look();
-        //Debug.Log(inputReader.LookValue);
-    }
-
-    private void Look() {
-        Vector3 cameraAngles = camera.transform.eulerAngles;
-        xRot = inputReader.LookValue.y * -1;
-        yRot = inputReader.LookValue.x;
-        cameraAngles.x += xRot * Xsensitivity * Time.deltaTime;
-        cameraAngles.y += yRot * Ysensitivity * Time.deltaTime;
-
-        camera.transform.eulerAngles = cameraAngles;
-
-    }
-
-    public static float ClampAngle(float angle, float min, float max)
-    {
-        if (angle < -360F) angle += 360F;
-        if (angle > 360F) angle -= 360F;
-        return Mathf.Clamp(angle, min, max);
-
-    }
-    void Movement()
-    {
-        Vector3 motion= new Vector3(inputReader.MovementValue.x,0,inputReader.MovementValue.y);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+        
+        Vector3 motion = transform.right * inputReader.MovementValue.x + transform.forward * inputReader.MovementValue.y;
+        
         if (inputReader.IsSprinting)
         {
-            characterController.Move(motion * sprintSpeed * Time.deltaTime);
+            Controller.Move(motion * sprintSpeed * Time.deltaTime);
         }
         else
         {
-            characterController.Move(motion * walkSpeed * Time.deltaTime);
+
+        Controller.Move(motion * walkSpeed * Time.deltaTime);
         }
+
+        //sprint
+        //jump
+        if (inputReader.jump && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        velocity.y += gravity * Time.deltaTime;
+        Controller.Move(velocity*Time.deltaTime);
+        
     }
+
+    public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
+    {
+        Controller.enabled = false;
+        _grabbedLedge = true;
+        transform.position = Handpos;
+        isGrounded = false;
+        _activeLedge = currentLedge;
+    }
+
 }
