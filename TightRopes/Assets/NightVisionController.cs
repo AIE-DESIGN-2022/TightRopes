@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class NightVisionController : MonoBehaviour
 {
@@ -11,14 +12,21 @@ public class NightVisionController : MonoBehaviour
     public bool NightVisionOn;
     public PostProcessVolume volume;
     InputReader input;
-    private VideoPlayer Camera;
+    private VideoPlayer video;
+    public GameObject Maincamera;
+    public GameObject canvas;
     // Start is called before the first frame update
     private void Start()
     {
-        Camera =  GameObject.FindGameObjectWithTag("MainCamera").GetComponent<VideoPlayer>();
+        canvas.SetActive(false);
+        Maincamera = GameObject.FindGameObjectWithTag("MainCamera");
+        Maincamera.GetComponent<VideoPlayer>().enabled = false;
+        Maincamera.GetComponent<PostProcessLayer>().enabled = false;
+        
+        video =  GameObject.FindGameObjectWithTag("HandCamera").GetComponent<VideoPlayer>();
         input = FindObjectOfType<InputReader>();
 
-        Camera.enabled= false;
+        video.enabled= false;
         RenderSettings.ambientLight = defaultLightColour;
         input.InteractEvent += OnInteration;
         volume = gameObject.GetComponent<PostProcessVolume>();
@@ -35,13 +43,13 @@ public class NightVisionController : MonoBehaviour
 
         if (NightVisionOn)
         {
-            Camera.enabled = true;
+            video.enabled = true;
             RenderSettings.ambientLight = boostedLightColour;
             volume.weight = 1;
         }
         else
         {
-            Camera.enabled = false;    
+            video.enabled = false;    
             RenderSettings.ambientLight = defaultLightColour;
             volume.weight = 0;
         }
@@ -49,6 +57,9 @@ public class NightVisionController : MonoBehaviour
 
     private void OnInteration()
     {
+        canvas.SetActive(true);
+        Maincamera.GetComponent<VideoPlayer>().enabled = true;
+        Maincamera.GetComponent<PostProcessLayer>().enabled = true;
         ToggleNightVision();
     }
 }
