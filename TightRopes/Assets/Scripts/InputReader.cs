@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     private Controls controls;
-    private bool isWalking;
+    public bool isWalking;
 
     public Vector2 MovementValue { get; private set; }
     public Vector2 LookValue { get; private set; }

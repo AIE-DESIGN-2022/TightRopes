@@ -1,5 +1,100 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!328 &1107106807187788086
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314890907429588933}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 52d63a2eb55128c498456280a99c2990, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 3314890907429588937}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!114 &486979368372078665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314890907429588933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 3314890907429588932}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &4041687340007406094
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +138,7 @@ GameObject:
   - component: {fileID: 3314890908479393838}
   - component: {fileID: 3314890908479393809}
   m_Layer: 0
-  m_Name: Blake Player 1
+  m_Name: Blake Player New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,5 +352,20 @@ Transform:
 --- !u!95 &3314890907576177744 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7263867312134620906, guid: c7e3f2874c30b6d4292c5a4bd2093238, type: 3}
+  m_PrefabInstance: {fileID: 5390434241741525690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3314890907429588933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7263867311450774911, guid: c7e3f2874c30b6d4292c5a4bd2093238, type: 3}
+  m_PrefabInstance: {fileID: 5390434241741525690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3314890907429588932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7263867311450774910, guid: c7e3f2874c30b6d4292c5a4bd2093238, type: 3}
+  m_PrefabInstance: {fileID: 5390434241741525690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3314890907429588937 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7263867311450774899, guid: c7e3f2874c30b6d4292c5a4bd2093238, type: 3}
   m_PrefabInstance: {fileID: 5390434241741525690}
   m_PrefabAsset: {fileID: 0}
