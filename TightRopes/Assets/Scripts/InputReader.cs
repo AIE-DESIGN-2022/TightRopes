@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,14 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     private Controls controls;
+    private bool isWalking;
+
     public Vector2 MovementValue { get; private set; }
-    
-    public bool isWalking;
     public Vector2 LookValue { get; private set; }
-    
     public bool IsSprinting { get; private set; }
     public bool jump { get; private set; }
+
+    public event Action InteractEvent;
     private void Start()
     {
         controls = new Controls();
@@ -23,9 +25,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         MovementValue = context.ReadValue<Vector2>();
         print(MovementValue);
-        if(MovementValue != new Vector2(0,0))
+        if (MovementValue != new Vector2(0, 0))
         {
-            
+
             isWalking = true;
         }
         else
@@ -49,5 +51,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (context.performed) jump = true;
         else jump = false;
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed) InteractEvent?.Invoke();
+
     }
 }
