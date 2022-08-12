@@ -24,6 +24,7 @@ public class LedgeChecker : MonoBehaviour
         if (other.CompareTag("LedgeChecker"))
         {
             var player = other.GetComponentInParent<PlayerController>();
+            player.GetComponent<Animator>().SetTrigger("Mantle");
             player.GrabLedge(newHandPos, this);
         }
     }

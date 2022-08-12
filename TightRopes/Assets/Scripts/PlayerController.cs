@@ -38,10 +38,12 @@ public class PlayerController : MonoBehaviour
     [Header("Scripts")]
     private InputReader inputReader;
     public CharacterController Controller;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        inputReader = GetComponent<InputReader>();
+        animator = GetComponent<Animator>();
+        inputReader = GetComponentInChildren<InputReader>();
         Controller = GetComponent<CharacterController>();
     }
 
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour
         {
 
         Controller.Move(motion * walkSpeed * Time.deltaTime);
+            
+            
         }
 
         //sprint
