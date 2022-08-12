@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,16 +24,18 @@ public class LedgeChecker : MonoBehaviour
         Debug.Log("Hit");
         if (other.CompareTag("LedgeChecker"))
         {
-            var player = other.GetComponentInParent<PlayerController>();
-            player.GetComponent<Animator>().SetTrigger("Mantle");
-            player.GrabLedge(newHandPos, this);
+            var controller = other.GetComponentInParent<PlayerController>();
+
+            GameObject player = other.transform.parent.gameObject;
+            Animator Blake = player.transform.GetComponentInChildren<Animator>();
+            Blake.SetTrigger("Mantle");
+            controller.GrabLedge(newHandPos, this);
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
-        var Player = other.GetComponentInParent<PlayerController>();
-        Player.Controller.enabled = true;
+        var controller =other.GetComponentInParent<PlayerController>();
+        controller.Controller.enabled = true;
     }
     public Vector3 GetStandUpPos()
     {
