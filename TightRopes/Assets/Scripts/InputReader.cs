@@ -15,11 +15,15 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool jump { get; private set; }
 
     public event Action InteractEvent;
+
+    private Flashlight flashlightScript;
     private void Start()
     {
         controls = new Controls();
         controls.Player.SetCallbacks(this);
         controls.Player.Enable();
+
+        flashlightScript = FindObjectOfType<Flashlight>();
     }
     public void OnMove1(InputAction.CallbackContext context)
     {
@@ -57,5 +61,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (context.performed) InteractEvent?.Invoke();
 
+    }
+
+    public void OnFlashlight(InputAction.CallbackContext context)
+    {
+        if (context.performed) flashlightScript.TurnOnOff();
+        Debug.Log("worked");
     }
 }
