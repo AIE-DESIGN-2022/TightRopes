@@ -34,7 +34,7 @@ public class LedgeChecker : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        var controller =other.GetComponentInParent<PlayerController>();
+        var controller = other.GetComponentInParent<PlayerController>();
         controller.Controller.enabled = true;
     }
     public Vector3 GetStandUpPos()

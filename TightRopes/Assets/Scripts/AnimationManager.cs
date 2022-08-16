@@ -50,4 +50,16 @@ public class AnimationManager : MonoBehaviour
             animator.SetBool("Idle", false);
         }
     }
+
+    public void FlashOut()
+    {
+        animator.SetTrigger("FlashOut");
+        animator.SetBool("FlashlightStillOut", true);
+    }
+
+    public void FlashIn()
+    {
+        animator.SetTrigger("FlashIn");
+        animator.SetBool("FlashlightStillOut", false);
+    }
 }
