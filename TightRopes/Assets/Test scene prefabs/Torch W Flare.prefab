@@ -97,6 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5708ca31358cd47a8c3294f3ff113d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torch: {fileID: 429811951528052538}
+  lights:
+  - {fileID: 6169492230255978820}
+  - {fileID: 5637070301146433894}
+  - {fileID: 5273055278594811896}
 --- !u!1 &1329788712479087703
 GameObject:
   m_ObjectHideFlags: 0
