@@ -6,19 +6,21 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator animator;
     public InputReader input;
-    private PlayerController playerController;
+ 
+
     
     // Start is called before the first frame update
     void Start()
     {
         input = FindObjectOfType<InputReader>();
         animator=FindObjectOfType<Animator>();
-        playerController = FindObjectOfType<PlayerController>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         idle();
         walk();
 /*        Debug.Log(input.isWalking);
@@ -65,12 +67,15 @@ public class AnimationManager : MonoBehaviour
         animator.SetBool("FlashlightStillOut", false);
     }
 
-    public void Jump()
+    public void ProneDown()
     {
-        //if animation finished run
-            playerController.Jump();
-        animator.SetTrigger("Jump");
-        //Disable Movement Inputs
-        //Enable Jump Input
+        animator.SetBool("Prone", true);
+        StartCoroutine(Wait());
+    }
+
+
+   public  IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
     }
 }

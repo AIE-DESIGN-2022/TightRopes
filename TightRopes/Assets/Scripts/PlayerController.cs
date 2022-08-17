@@ -6,17 +6,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Objects")]
-    
-    public GameObject Arms;
-
-    public GameObject blake;
+    public GameObject Blake;
+    public GameObject torch;
+    public GameObject proneBox;
 
     [Header("Bools")]
     public bool isWalking;
     public bool isCrouched;
     public bool isMoving;
     public bool isCrawling;
-    public bool jumpAnimFinish;
+    public bool leftArm;
+    public bool rightArm;
 
     [Header("speeds")]
     public float walkSpeed;
@@ -41,15 +41,23 @@ public class PlayerController : MonoBehaviour
     [Header("Scripts")]
     private InputReader inputReader;
     public CharacterController Controller;
-    public Animator animator;
+    public AnimationManager aniManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        aniManager = FindObjectOfType<AnimationManager>();
         inputReader = GetComponentInChildren<InputReader>();
         Controller = GetComponent<CharacterController>();
+        inputReader.TorchEvent += LeftArm;
+        inputReader.CameraEvent += RightArm;
+        inputReader.CrouchEvent += Crouch;
+        inputReader.ProneEvent += Prone;
+        leftArm = true;
+        rightArm = false;
+        proneBox.GetComponent<CharacterController>().enabled = false;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -93,10 +101,43 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
         _activeLedge = currentLedge;
     }
-
-    public void Jump()
+    private void LeftArm()
     {
-        this.gameObject.transform.position = blake.transform.position;
+        if (!leftArm && rightArm)
+        {
+            torch.SetActive(true);
+            aniManager.FlashOut();
+            leftArm = true;
+            rightArm = false;
+        }
     }
 
+    private void RightArm()
+    {
+        if (leftArm && !rightArm)
+        {
+            Debug.Log(aniManager.animator.GetCurrentAnimatorClipInfo(0).Length);
+            leftArm=false;
+            aniManager.FlashIn();
+            StartCoroutine(aniManager.Wait());
+            torch.SetActive(false);
+            rightArm=true;
+        }
+    }
+
+    private void Prone()
+    {
+        aniManager.ProneDown();
+        this.gameObject.GetComponent<CharacterController>().enabled = false;
+        proneBox.GetComponent<CharacterController>().enabled = true;
+        Blake.transform.parent = proneBox.transform;
+        //Blake.transform.rotation
+        Controller = proneBox.GetComponent<CharacterController>(); 
+        
+    }
+
+    private void Crouch()
+    {
+        aniManager.animator.SetBool("Crouching", true);
+    }
 }

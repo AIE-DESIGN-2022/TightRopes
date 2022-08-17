@@ -15,20 +15,34 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool jump { get; private set; }
 
     public event Action InteractEvent;
+    public event Action TorchEvent;
+    public event Action CameraEvent;
+    public event Action CrouchEvent;
+    public event Action ProneEvent;
 
-    private Flashlight flashlightScript;
+    private float timer;
+    private bool timerStarted;
+
     private void Start()
     {
         controls = new Controls();
         controls.Player.SetCallbacks(this);
         controls.Player.Enable();
 
-        flashlightScript = FindObjectOfType<Flashlight>();
     }
+
+    private void Update()
+    {
+        if (timerStarted)
+        {
+            timer += Time.deltaTime;
+        }
+    }
+
     public void OnMove1(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();
-        print(MovementValue);
+        //print(MovementValue);
         if (MovementValue != new Vector2(0, 0))
         {
 
@@ -42,7 +56,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.performed) IsSprinting  = true;
+        if (context.performed) IsSprinting = true;
         else if (context.canceled) IsSprinting = false;
     }
 
@@ -65,7 +79,44 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnFlashlight(InputAction.CallbackContext context)
     {
-        if (context.performed) flashlightScript.TurnOnOff();
-        Debug.Log("worked");
+        //Debug.Log("Flashflight Pressed");
+        if (context.performed)
+        {
+            TorchEvent?.Invoke();
+        }
+    }
+
+    public void OnCamera(InputAction.CallbackContext context)
+    {
+        if (context.performed) CameraEvent?.Invoke();
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if(context.performed) CrouchEvent?.Invoke();
+
+    /*    if (context.performed)
+        {
+            timer = 0;
+            timerStarted = true;
+        }
+        else if (context.canceled)
+        {
+            timerStarted = false;
+            if (timer < 1f)
+            {
+                CrouchEvent?.Invoke();
+            }
+            else
+            {
+                // prone event;
+                ProneEvent?.Invoke();
+            }
+        }*/
+    }
+
+    public void OnProne(InputAction.CallbackContext context)
+    {
+        if(context.performed) ProneEvent?.Invoke(); 
     }
 }

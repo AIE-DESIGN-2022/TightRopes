@@ -6,38 +6,55 @@ public class Flashlight : MonoBehaviour
 {
     private bool flashlightOn;
 
-    private GameObject light;
-
+    public GameObject torch;
+    public Light light;
     private AnimationManager animManager;
 
+    private InputReader inputReader;
+
+    private void Awake()
+    {
+        if (light == null) light = GetComponentInChildren<Light>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        light = GameObject.Find("Torch Light");
-
+        /*        light = GameObject.Find("Torch Light");
+        */
         animManager = FindObjectOfType<AnimationManager>();
+        inputReader = FindObjectOfType<InputReader>();
+        inputReader.TorchEvent += Interaction;
+        flashlightOn = true;
+        light= torch.GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TurnOnOff()
     {
-        if (flashlightOn)
+        //print("on off called");
+        if (!flashlightOn)
         {
-            light.SetActive(true);
+            //torch.SetActive(true);
             flashlightOn = true;
-            animManager.FlashOut();
+            /*animManager.FlashOut();*/
         }
         else
         {
-            light.SetActive(false);
+            //torch.SetActive(false);
             flashlightOn = false;
-            animManager.FlashIn();
-        }
+/*            animManager.FlashIn();
+*/        }
+        light.enabled = flashlightOn;
+        Debug.Log("flashlight = " + light.enabled.ToString());
+    }
+    public void Interaction()
+    {
+        TurnOnOff();
     }
 }
