@@ -6,7 +6,9 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator animator;
     public InputReader input;
- 
+
+    private bool proning;
+    private bool crouching;
 
     
     // Start is called before the first frame update
@@ -67,12 +69,35 @@ public class AnimationManager : MonoBehaviour
         animator.SetBool("FlashlightStillOut", false);
     }
 
-    public void ProneDown()
+    public void Prone()
     {
-        animator.SetBool("Prone", true);
-        StartCoroutine(Wait());
+        if (proning == false)
+        {
+            proning = true;
+            animator.SetBool("Prone", proning);
+        }
+        else
+        {
+            proning = false;
+            animator.SetBool("Prone", proning);
+        }
+        Debug.Log(proning);
     }
 
+    public void Crouch()
+    {
+        if (!crouching)
+        {
+            crouching = true;
+            animator.SetBool("Crouching", crouching);
+        }
+        else
+        {
+            crouching = false;
+            animator.SetBool("Crouching", crouching);
+
+        }
+    }
 
    public  IEnumerator Wait()
     {
