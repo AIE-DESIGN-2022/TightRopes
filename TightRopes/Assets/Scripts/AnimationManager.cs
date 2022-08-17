@@ -6,17 +6,21 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator animator;
     public InputReader input;
+ 
+
     
     // Start is called before the first frame update
     void Start()
     {
         input = FindObjectOfType<InputReader>();
         animator=FindObjectOfType<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         idle();
         walk();
 /*        Debug.Log(input.isWalking);
@@ -61,5 +65,17 @@ public class AnimationManager : MonoBehaviour
     {
         animator.SetTrigger("FlashIn");
         animator.SetBool("FlashlightStillOut", false);
+    }
+
+    public void ProneDown()
+    {
+        animator.SetBool("Prone", true);
+        StartCoroutine(Wait());
+    }
+
+
+   public  IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
     }
 }
