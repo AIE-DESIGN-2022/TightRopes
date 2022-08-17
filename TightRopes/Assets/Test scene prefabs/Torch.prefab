@@ -95,8 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5708ca31358cd47a8c3294f3ff113d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightOn: 0
-  light: {fileID: 0}
 --- !u!1 &2101681660249767069
 GameObject:
   m_ObjectHideFlags: 0
