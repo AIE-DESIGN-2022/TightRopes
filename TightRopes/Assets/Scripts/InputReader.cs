@@ -88,7 +88,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnCamera(InputAction.CallbackContext context)
     {
-        if (context.performed) CameraEvent?.Invoke();
+        if (context.performed) CameraEvent?.Invoke(); Debug.Log("Let there be light");
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
