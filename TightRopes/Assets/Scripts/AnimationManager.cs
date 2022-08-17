@@ -6,12 +6,14 @@ public class AnimationManager : MonoBehaviour
 {
     public Animator animator;
     public InputReader input;
+    private PlayerController playerController;
     
     // Start is called before the first frame update
     void Start()
     {
         input = FindObjectOfType<InputReader>();
         animator=FindObjectOfType<Animator>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -61,5 +63,14 @@ public class AnimationManager : MonoBehaviour
     {
         animator.SetTrigger("FlashIn");
         animator.SetBool("FlashlightStillOut", false);
+    }
+
+    public void Jump()
+    {
+        //if animation finished run
+            playerController.Jump();
+        animator.SetTrigger("Jump");
+        //Disable Movement Inputs
+        //Enable Jump Input
     }
 }

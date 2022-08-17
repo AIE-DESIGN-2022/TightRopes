@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     
     public GameObject Arms;
 
+    public GameObject blake;
+
     [Header("Bools")]
     public bool isWalking;
     public bool isCrouched;
     public bool isMoving;
     public bool isCrawling;
+    public bool jumpAnimFinish;
 
     [Header("speeds")]
     public float walkSpeed;
@@ -89,6 +92,11 @@ public class PlayerController : MonoBehaviour
         transform.position = Handpos;
         isGrounded = false;
         _activeLedge = currentLedge;
+    }
+
+    public void Jump()
+    {
+        this.gameObject.transform.position = blake.transform.position;
     }
 
 }
