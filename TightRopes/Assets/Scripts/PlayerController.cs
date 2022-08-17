@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     [Header("Objects")]
     public GameObject Blake;
     public GameObject torch;
-    public GameObject proneBox;
+    public float standheight;
+    public float crouchheight;
+    public float proneheight;
 
     [Header("Bools")]
     public bool isWalking;
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Scripts")]
     private InputReader inputReader;
-    public CharacterController Controller;
+    public CharacterController controller;
     public AnimationManager aniManager;
 
     // Start is called before the first frame update
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         aniManager = FindObjectOfType<AnimationManager>();
         inputReader = GetComponentInChildren<InputReader>();
-        Controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
       
         inputReader.TorchEvent += LeftArm;
         inputReader.CameraEvent += RightArm;
@@ -57,7 +59,6 @@ public class PlayerController : MonoBehaviour
 
         inputReader.CrouchEvent += Crouch;
         inputReader.ProneEvent += Prone;
-        proneBox.GetComponent<CharacterController>().enabled = false;
     }
 
 
@@ -74,12 +75,12 @@ public class PlayerController : MonoBehaviour
         
         if (inputReader.IsSprinting)
         {
-            Controller.Move(motion * sprintSpeed * Time.deltaTime);
+            controller.Move(motion * sprintSpeed * Time.deltaTime);
         }
         else
         {
 
-        Controller.Move(motion * walkSpeed * Time.deltaTime);
+        controller.Move(motion * walkSpeed * Time.deltaTime);
             
             
         }
@@ -91,13 +92,13 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;
-        Controller.Move(velocity*Time.deltaTime);
+        controller.Move(velocity*Time.deltaTime);
         
     }
 
     public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
     {
-        Controller.enabled = false;
+        controller.enabled = false;
         _grabbedLedge = true;
         transform.position = Handpos;
         isGrounded = false;
@@ -129,17 +130,37 @@ public class PlayerController : MonoBehaviour
 
     private void Prone()
     {
-        aniManager.ProneDown();
-        this.gameObject.GetComponent<CharacterController>().enabled = false;
-        proneBox.GetComponent<CharacterController>().enabled = true;
-        Blake.transform.parent = proneBox.transform;
-        //Blake.transform.rotation
-        Controller = proneBox.GetComponent<CharacterController>(); 
-        
+        //Debug.Log(isCrawling);
+        if (!isCrawling)
+        {
+            aniManager.Prone();
+            isCrawling = true;
+            controller.height = proneheight;
+
+        }
+        else
+        {
+            aniManager.Prone();
+            isCrawling = false;
+            controller.height = crouchheight;
+        }
+       // Debug.Log(isCrawling);
+
     }
 
     private void Crouch()
     {
-        aniManager.animator.SetBool("Crouching", true);
+        if (!isCrouched)
+        {
+            aniManager.Crouch();
+            isCrouched = true;
+            controller.height = crouchheight;
+        }
+        else
+        {
+            aniManager.Crouch();
+            isCrouched=false;
+            controller.height=crouchheight;
+        }
     }
 }
