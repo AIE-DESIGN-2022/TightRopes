@@ -49,12 +49,14 @@ public class PlayerController : MonoBehaviour
         aniManager = FindObjectOfType<AnimationManager>();
         inputReader = GetComponentInChildren<InputReader>();
         Controller = GetComponent<CharacterController>();
+      
         inputReader.TorchEvent += LeftArm;
         inputReader.CameraEvent += RightArm;
-        inputReader.CrouchEvent += Crouch;
-        inputReader.ProneEvent += Prone;
         leftArm = true;
         rightArm = false;
+
+        inputReader.CrouchEvent += Crouch;
+        inputReader.ProneEvent += Prone;
         proneBox.GetComponent<CharacterController>().enabled = false;
     }
 

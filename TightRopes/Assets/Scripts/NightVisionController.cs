@@ -15,27 +15,30 @@ public class NightVisionController : MonoBehaviour
     private VideoPlayer video;
     public GameObject Maincamera;
     public GameObject canvas;
+    public PlayerController playerController;
     // Start is called before the first frame update
     private void Start()
     {
         canvas.SetActive(false);
+        playerController = FindObjectOfType<PlayerController>();
         Maincamera = GameObject.FindGameObjectWithTag("MainCamera");
         Maincamera.GetComponent<VideoPlayer>().enabled = false;
         Maincamera.GetComponent<PostProcessLayer>().enabled = false;
         
-        video =  GameObject.FindGameObjectWithTag("HandCamera").GetComponent<VideoPlayer>();
+        video =  Maincamera.GetComponent<VideoPlayer>();
         input = FindObjectOfType<InputReader>();
 
-        video.enabled= false;
         RenderSettings.ambientLight = defaultLightColour;
-        input.InteractEvent += OnInteration;
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
     }
 
     private void Update()
     {
-      
+        if (playerController.rightArm)
+        {
+            input.CameraEvent += OnInteration;
+        }
     }
     private void ToggleNightVision()
     {
