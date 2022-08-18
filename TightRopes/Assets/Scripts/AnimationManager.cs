@@ -86,6 +86,11 @@ public class AnimationManager : MonoBehaviour
 
     public void Crouch()
     {
+        if (proning)
+        {
+            proning = false;
+            animator.SetBool("Prone", proning);
+        }
         if (!crouching)
         {
             crouching = true;
