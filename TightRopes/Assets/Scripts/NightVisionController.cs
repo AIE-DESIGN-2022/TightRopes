@@ -11,6 +11,11 @@ public class NightVisionController : MonoBehaviour
     public Color boostedLightColour;
     public bool NightVisionOn;
     public PostProcessVolume volume;
+
+    private GameObject blakeMesh;
+    private GameObject torch;
+    private GameObject handCamera;
+
     InputReader input;
     private VideoPlayer video;
     public GameObject Maincamera;
@@ -31,6 +36,10 @@ public class NightVisionController : MonoBehaviour
         RenderSettings.ambientLight = defaultLightColour;
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
+
+        blakeMesh = GameObject.FindGameObjectWithTag("BlakeMesh");
+        torch = GameObject.FindGameObjectWithTag("FlashLight");
+        handCamera = GameObject.FindGameObjectWithTag("HandCamera");
     }
 
     private void Update()
@@ -49,12 +58,18 @@ public class NightVisionController : MonoBehaviour
             video.enabled = true;
             RenderSettings.ambientLight = boostedLightColour;
             volume.weight = 1;
+            blakeMesh.SetActive(false);
+            torch.SetActive(false);
+            handCamera.SetActive(false);
         }
         else
         {
             video.enabled = false;    
             RenderSettings.ambientLight = defaultLightColour;
             volume.weight = 0;
+            blakeMesh.SetActive(true);
+            torch.SetActive(true);
+            handCamera.SetActive(true);
         }
     }
 
