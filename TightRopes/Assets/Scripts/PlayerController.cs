@@ -95,7 +95,30 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity*Time.deltaTime);
         
     }
+    private void LateUpdate()
+    {
+  /*      if (isCrouched)
+        {
+        Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z-0.5f);
 
+        }
+        else if(isCrawling){
+            //Blake.transform.position = new Vector3(transform.position.x, transform.position.y-2.5f, transform.position.z - 1f);
+            //Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+            //Blake.transform.rotation = new Quaternion(transform.rotation.x + 45f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            //Blake.transform.rotation = new Quaternion(-45, transform.rotation.y, 0,0);
+             //   Quaternion(0.707106829, 0, 0, 0.707106829)
+            //transforms
+            //Vector3(-0.0979999974,-0.685000002,-1.04799998)
+            //Quaternion(0.663137853,0.0385196432,-0.0234564785,0.747137368)
+
+        }
+        else
+        {
+        Blake.transform.position = new Vector3(transform.position.x, transform.position.y -1f, transform.position.z);
+
+        }*/
+    }
     public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
     {
         controller.enabled = false;
@@ -160,7 +183,7 @@ public class PlayerController : MonoBehaviour
         {
             aniManager.Crouch();
             isCrouched=false;
-            controller.height=crouchheight;
+            controller.height= standheight;
         }
     }
 }
