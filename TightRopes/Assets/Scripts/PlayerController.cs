@@ -33,19 +33,22 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public bool isGrounded;
-    public List<Transform> playerPOS;
 
     [Header("Ledgegrabs")]
     private bool _grabbedLedge;
     private LedgeChecker _activeLedge;
+    Vector3 blakePosBeforeLedge;
+    Vector3 climbPos;
+   public GameObject ledgeChecker;
 
-    [Header("Vectors")]
+   [Header("Vectors")]
     Vector3 velocity;
 
     [Header("Scripts")]
     private InputReader inputReader;
     public CharacterController controller;
     public AnimationManager aniManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -105,39 +108,34 @@ public class PlayerController : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);
-        
     }
     private void LateUpdate()
     {
-  /*      if (isCrouched)
+        /*      if (isCrouched)
+              {
+              Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z-0.5f);
+
+              }
+              else if(isCrawling){
+                  //Blake.transform.position = new Vector3(transform.position.x, transform.position.y-2.5f, transform.position.z - 1f);
+                  //Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
+                  //Blake.transform.rotation = new Quaternion(transform.rotation.x + 45f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                  //Blake.transform.rotation = new Quaternion(-45, transform.rotation.y, 0,0);
+                   //   Quaternion(0.707106829, 0, 0, 0.707106829)
+                  //transforms
+                  //Vector3(-0.0979999974,-0.685000002,-1.04799998)
+                  //Quaternion(0.663137853,0.0385196432,-0.0234564785,0.747137368)
+
+              }
+              else
+              {
+              Blake.transform.position = new Vector3(transform.position.x, transform.position.y -1f, transform.position.z);
+
+              }*/
+        if (_grabbedLedge)
         {
-        Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z-0.5f);
-
+            Blake.transform.position = transform.position;
         }
-        else if(isCrawling){
-            //Blake.transform.position = new Vector3(transform.position.x, transform.position.y-2.5f, transform.position.z - 1f);
-            //Blake.transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
-            //Blake.transform.rotation = new Quaternion(transform.rotation.x + 45f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-            //Blake.transform.rotation = new Quaternion(-45, transform.rotation.y, 0,0);
-             //   Quaternion(0.707106829, 0, 0, 0.707106829)
-            //transforms
-            //Vector3(-0.0979999974,-0.685000002,-1.04799998)
-            //Quaternion(0.663137853,0.0385196432,-0.0234564785,0.747137368)
-
-        }
-        else
-        {
-        Blake.transform.position = new Vector3(transform.position.x, transform.position.y -1f, transform.position.z);
-
-        }*/
-    }
-    public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
-    {
-        controller.enabled = false;
-        _grabbedLedge = true;
-        transform.position = Handpos;
-        isGrounded = false;
-        _activeLedge = currentLedge;
     }
     private void LeftArm()
     {
@@ -198,6 +196,26 @@ public class PlayerController : MonoBehaviour
         aniManager.Crouch();
         isCrouched = false;
         controller.height = standheight;
+        }
     }
+    public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
+    {
+        // blakePosBeforeLedge = Blake.transform.position;
+        GetComponent<Animator>().SetTrigger("Climb");
+        climbPos = Handpos;
+        controller.enabled = false;
+        _grabbedLedge = true;
+        aniManager.Climb();
+        isGrounded = false;
+        _activeLedge = currentLedge;
+    }
+    public void ClimbLedge()
+    {
+        //transform.position = climbPos;
+        _grabbedLedge = false;
+        //transform.position = _activeLedge.GetStandUpPos();
+        controller.enabled = true;
+        ledgeChecker.SetActive(true);
+
     }
 }

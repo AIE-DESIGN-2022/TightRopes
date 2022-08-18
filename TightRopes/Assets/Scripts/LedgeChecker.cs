@@ -7,7 +7,7 @@ public class LedgeChecker : MonoBehaviour
 {
     public Transform handPos, standPos;
     public float yOffset = -1f;
-    public float zOffset = 2f;
+    
 
     private Vector3 newHandPos;
 
@@ -15,7 +15,7 @@ public class LedgeChecker : MonoBehaviour
     void Start()
     {
         newHandPos = new Vector3(handPos.position.x, 
-            handPos.position.y - yOffset, handPos.position.z + zOffset);
+            handPos.position.y - yOffset, handPos.position.z);
     }
 
     // Update is called once per frame
@@ -24,19 +24,24 @@ public class LedgeChecker : MonoBehaviour
         Debug.Log("Hit");
         if (other.CompareTag("LedgeChecker"))
         {
-            var controller = other.GetComponentInParent<PlayerController>();
+
+            var player = other.GetComponentInParent<PlayerController>();
+            player.GrabLedge(newHandPos,this);
+            other.gameObject.SetActive(false);  
+
+            /*var controller = other.GetComponentInParent<PlayerController>();
 
             GameObject player = other.transform.parent.gameObject;
             Animator Blake = player.transform.GetComponentInChildren<Animator>();
-            Blake.SetTrigger("Mantle");
-            controller.GrabLedge(newHandPos, this);
+            Blake.SetTrigger("climb");
+            controller.GrabLedge(newHandPos, this);*/
         }
     }
-    private void OnTriggerExit(Collider other)
+/*    private void OnTriggerExit(Collider other)
     {
         var controller = other.GetComponentInParent<PlayerController>();
         controller.controller.enabled = true;
-    }
+    }*/
     public Vector3 GetStandUpPos()
     {
         return standPos.position;

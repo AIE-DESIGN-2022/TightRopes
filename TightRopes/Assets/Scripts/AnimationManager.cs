@@ -15,7 +15,7 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         input = FindObjectOfType<InputReader>();
-        animator=FindObjectOfType<Animator>();
+        //animator=FindObjectOfType<Animator>();
         
     }
 
@@ -108,7 +108,10 @@ public class AnimationManager : MonoBehaviour
 
         }
     }
-
+   public  void Climb()
+    {
+        animator.SetTrigger("climb");
+    }
    public  IEnumerator Wait()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
