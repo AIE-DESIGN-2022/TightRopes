@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("speeds")]
     public float walkSpeed;
     public float sprintSpeed;
+    public float crawlingSpeed;
+    public float crouchingSpeed;
     public float gravity = -9.81f;
     public float jumpHeight = 0.001f;
 
@@ -73,9 +75,19 @@ public class PlayerController : MonoBehaviour
         
         Vector3 motion = transform.right * inputReader.MovementValue.x + transform.forward * inputReader.MovementValue.y;
         
-        if (inputReader.IsSprinting)
+        if (inputReader.IsSprinting && !isCrouched && !isCrawling)
         {
             controller.Move(motion * sprintSpeed * Time.deltaTime);
+        }
+        else if (isCrouched)
+        {
+            controller.Move(motion * crouchingSpeed * Time.deltaTime);
+
+        }
+        else if (isCrawling) 
+        {
+            controller.Move(motion * crawlingSpeed * Time.deltaTime);
+
         }
         else
         {
@@ -156,9 +168,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(isCrawling);
         if (!isCrawling)
         {
-            aniManager.Prone();
-            isCrawling = true;
-            controller.height = proneheight;
+        aniManager.Prone();
+        isCrawling = true;
+        isCrouched = false;
+        controller.height = proneheight;
 
         }
         else
@@ -175,15 +188,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!isCrouched)
         {
-            aniManager.Crouch();
-            isCrouched = true;
-            controller.height = crouchheight;
-        }
+        aniManager.Crouch();
+        isCrouched = true;
+        isCrawling = false;
+        controller.height = crouchheight;
+    }
         else
         {
-            aniManager.Crouch();
-            isCrouched=false;
-            controller.height= standheight;
-        }
+        aniManager.Crouch();
+        isCrouched = false;
+        controller.height = standheight;
+    }
     }
 }
