@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         GetComponent<Animator>().runtimeAnimatorController = climbController;
-        aniManager = FindObjectOfType<AnimationManager>();
+        aniManager = GetComponentInChildren<AnimationManager>();
         inputReader = GetComponentInChildren<InputReader>();
         controller = GetComponent<CharacterController>();
       
