@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using Kino;
 
 public class NightVisionController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class NightVisionController : MonoBehaviour
     public GameObject Maincamera;
     public GameObject canvas;
     public PlayerController playerController;
+    public AnalogGlitch analogGlitch;
+    public DigitalGlitch digitalGlitch;
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,6 +34,13 @@ public class NightVisionController : MonoBehaviour
         RenderSettings.ambientLight = defaultLightColour;
         volume = gameObject.GetComponent<PostProcessVolume>();
         volume.weight = 0;
+
+        digitalGlitch = Maincamera.GetComponent<DigitalGlitch>();
+        analogGlitch = Maincamera.GetComponent<AnalogGlitch>();
+
+        analogGlitch.enabled = false;
+        digitalGlitch.enabled = false;
+
     }
 
     private void Update()
@@ -49,12 +59,16 @@ public class NightVisionController : MonoBehaviour
             video.enabled = true;
             RenderSettings.ambientLight = boostedLightColour;
             volume.weight = 1;
+            analogGlitch.enabled = true;
+            digitalGlitch.enabled = true;
         }
         else
         {
             video.enabled = false;    
             RenderSettings.ambientLight = defaultLightColour;
             volume.weight = 0;
+            analogGlitch.enabled = false;
+            digitalGlitch.enabled = false;
         }
     }
 
