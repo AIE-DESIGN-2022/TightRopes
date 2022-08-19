@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 1641004699}
     - target: {fileID: 2425055223361006733, guid: 48e239f99a90f8547882addecd635600, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2425055223361006733, guid: 48e239f99a90f8547882addecd635600, type: 3}
       propertyPath: m_LocalPosition.x
@@ -722,7 +722,7 @@ Transform:
   m_Children:
   - {fileID: 1817117198}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1171718804 stripped
 Animator:
@@ -952,7 +952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1349,7 +1349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2392654881606855561, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2392654881606855561, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1449,6 +1449,129 @@ PrefabInstance:
       objectReference: {fileID: 1171718804}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+--- !u!1001 &972284197764286370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6041811963505851315, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_Name
+      value: The Adventurer DAD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6823957
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.721
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1765761
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314842092573706656, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 229b667be2687d6438a38132bde8839d, type: 3}
+--- !u!1001 &1449142066026132633
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1704107416122124382, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_Name
+      value: The Adventurer SIMON
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.7113175
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.666
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.20624697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449234110406171213, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726167169735276343, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'hand_L'\n\tTransform 'upper_leg_L'\n\tTransform
+        'lower_leg_R'\n\tTransform 'head_L'\n\tTransform 'clavicle_R'\n\tTransform
+        'upper_arm_R'\n\tTransform 'lower_arm_R'\n\tTransform 'chest'\n\tTransform
+        'Spine'\n\tTransform 'Spine1'\n\tand more ...\n\tFrom animation clip 'Bored'"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f956c8e89644fa642a4ec7adff4bd2b7, type: 3}
 --- !u!1001 &4404928727213828539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1458,7 +1581,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4404928727153341848, guid: 2afeffc0c078d4f43af915bbc8056453, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4404928727153341848, guid: 2afeffc0c078d4f43af915bbc8056453, type: 3}
       propertyPath: m_LocalPosition.x
