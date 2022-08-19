@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour
     [Header("Objects")]
     public GameObject Blake;
     public GameObject torch;
-    public float standheight;
-    public float crouchheight;
-    public float proneheight;
+    private float standheight = 2f;
+    private float crouchheight = 1.5f;
+    private float proneheight = 1f;
 
     [Header("Bools")]
-    public bool isWalking;
+    private bool isWalking;
     public bool isCrouched;
-    public bool isMoving;
+    private bool isMoving;
     public bool isCrawling;
     public bool leftArm;
     public bool rightArm;
@@ -49,10 +49,17 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public AnimationManager aniManager;
 
+    [Header("Animators")]
+    //public List<Ani> ;
+    public RuntimeAnimatorController jumpController;
+    public RuntimeAnimatorController climbController;
+    public RuntimeAnimatorController vaultController;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Animator>().runtimeAnimatorController = climbController;
         aniManager = FindObjectOfType<AnimationManager>();
         inputReader = GetComponentInChildren<InputReader>();
         controller = GetComponent<CharacterController>();
@@ -201,6 +208,7 @@ public class PlayerController : MonoBehaviour
     public void GrabLedge(Vector3 Handpos, LedgeChecker currentLedge)
     {
         // blakePosBeforeLedge = Blake.transform.position;
+        GetComponent<Animator>().runtimeAnimatorController = climbController;
         GetComponent<Animator>().SetTrigger("Climb");
         climbPos = Handpos;
         controller.enabled = false;

@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729347566936098138}
-  m_LocalRotation: {x: -0, y: -0.99963653, z: 0, w: -0.026961986}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
   m_LocalPosition: {x: -9.54, y: -1.0845156, z: 4.1398897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5729347568082863101}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -183.09, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!114 &5729347566936098141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1987
+  m_VersionIndex: 1998
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_PivotLocation: 1
   m_PivotPosition: {x: 0, y: 0, z: 0}
-  m_UnmodifiedMeshVersion: 1984
+  m_UnmodifiedMeshVersion: 1998
   m_ShapeBox:
     m_Center: {x: 1.906744, y: 1.2667598, z: 2.4844236}
     m_Extent: {x: 1.906744, y: 1.2667598, z: 2.4844236}
@@ -447,8 +447,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.825557, y: 1, z: 1.0386076}
-  m_Center: {x: -0.12456739, y: -1.2172124e-27, z: -0.019303799}
+  m_Size: {x: 1.9703807, y: 1, z: 1.0386076}
+  m_Center: {x: 0.007999957, y: 0, z: -0.019303799}
 --- !u!114 &5729347568082863075
 MonoBehaviour:
   m_ObjectHideFlags: 0
