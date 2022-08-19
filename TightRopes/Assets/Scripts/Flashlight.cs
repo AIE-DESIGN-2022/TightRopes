@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    private bool flashlightOn;
+    public bool flashlightOn;
 
     public GameObject torch;
     public List<Light> lights;
@@ -12,6 +12,9 @@ public class Flashlight : MonoBehaviour
 
     private InputReader inputReader;
 
+    private Battery batteryScript;
+
+    
 
 
     // Start is called before the first frame update
@@ -23,35 +26,52 @@ public class Flashlight : MonoBehaviour
         inputReader = FindObjectOfType<InputReader>();
         inputReader.TorchEvent += Interaction;
         flashlightOn = true;
- //       light= torch.GetComponentInChildren<Light>();
+        batteryScript = FindObjectOfType<Battery>();
+        //       light= torch.GetComponentInChildren<Light>();
+        batteryScript.flashlightHasBattery = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (!batteryScript.flashlightHasBattery)
+        {
+            flashlightOn = false;
+        }
     }
 
     public void TurnOnOff()
     {
-        //print("on off called");
-        if (!flashlightOn)
+        if (batteryScript.flashlightHasBattery)
         {
-            //torch.SetActive(true);
-            flashlightOn = true;
-            /*animManager.FlashOut();*/
+            if (!flashlightOn)
+            {
+                //torch.SetActive(true);
+                flashlightOn = true;
+                /*animManager.FlashOut();*/
+                batteryScript.usingFlashlight = true;
+            }
+            else
+            {
+                //torch.SetActive(false);
+                flashlightOn = false;
+                batteryScript.usingFlashlight = false;
+            }
+            foreach (Light light in lights)
+            {
+                light.enabled = flashlightOn;
+            }
         }
-        else
-        {
-            //torch.SetActive(false);
-            flashlightOn = false;
-/*            animManager.FlashIn();
-*/        }
-        foreach (Light light in lights) 
+        else { }
+    }
+
+    public void OutOfPower()
+    {
+        flashlightOn = false ;
+        foreach (Light light in lights)
         {
             light.enabled = flashlightOn;
         }
-        
     }
     public void Interaction()
     {
