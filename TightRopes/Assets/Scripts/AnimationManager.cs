@@ -117,6 +117,11 @@ public class AnimationManager : MonoBehaviour
     {
         animator.SetTrigger("Jump");
     }
+
+    public void Vault()
+    {
+        animator.SetTrigger("Vault");
+    }
    public  IEnumerator Wait()
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);

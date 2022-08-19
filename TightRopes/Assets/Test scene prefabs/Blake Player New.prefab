@@ -448,7 +448,7 @@ MonoBehaviour:
   aniManager: {fileID: 0}
   jumpController: {fileID: 9100000, guid: 6fa6be112b95b8d419c4d3bbe52391a4, type: 2}
   climbController: {fileID: 9100000, guid: 9deae4934550a564488ecdfd4d4a9f33, type: 2}
-  vaultController: {fileID: 0}
+  vaultController: {fileID: 9100000, guid: 77327382381b70a4999a5aa43cfecb31, type: 2}
 --- !u!95 &304700071
 Animator:
   serializedVersion: 3
