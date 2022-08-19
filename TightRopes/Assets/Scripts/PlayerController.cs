@@ -223,6 +223,7 @@ public class PlayerController : MonoBehaviour
         _grabbedLedge = false;
         //transform.position = _activeLedge.GetStandUpPos();
         controller.enabled = true;
+        inputReader.jump = false;
         ledgeChecker.SetActive(true);
 
     }
