@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Blake;
     public GameObject torch;
     private float standheight = 2f;
-    private float crouchheight = 1.5f;
-    private float proneheight = 1f;
+    public float crouchheight = 1.5f;
+    public float proneheight = 1f;
 
     [Header("Bools")]
     private bool isWalking;
