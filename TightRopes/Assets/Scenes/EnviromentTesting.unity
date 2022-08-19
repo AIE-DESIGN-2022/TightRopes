@@ -7676,11 +7676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.82
+      value: 4.86
       objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.75
+      value: 45.14
       objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37259,6 +37259,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &1211025649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3314890908479393838, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 527828707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56dc97e83c19e249b6ecc03b8cc8b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1244158888
 Mesh:
   m_ObjectHideFlags: 0
@@ -55282,6 +55293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: animation Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8522572585677873764, guid: 6aeb5106ab9742947b6cdc385e24f0c6, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1211025649}
     - target: {fileID: 8522572585677873764, guid: 6aeb5106ab9742947b6cdc385e24f0c6, type: 3}
       propertyPath: animator
       value: 
