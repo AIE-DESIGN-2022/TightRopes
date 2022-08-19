@@ -372,6 +372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48e239f99a90f8547882addecd635600, type: 3}
+--- !u!1 &460552799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7269566068981770212, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &736445609
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +754,11 @@ Transform:
   m_Father: {fileID: 1817117198}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1607608259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2789938796257781147, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1641004699
 Mesh:
   m_ObjectHideFlags: 0
@@ -920,6 +930,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3532941340977641858, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -967,6 +981,18 @@ PrefabInstance:
     - target: {fileID: 4702431393299589759, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_Name
       value: Blake Player New
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805029634577582664, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 895b108e36fc6224aa408bd34328210b, type: 2}
+    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+      propertyPath: _verticalJump
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+      propertyPath: _scanLineJitter
+      value: 0.016
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
@@ -1032,6 +1058,11 @@ Transform:
   m_Father: {fileID: 736445615}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1942445462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3532941340977641858, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2042709045 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3314890908479393838, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
@@ -1351,6 +1382,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 460552799}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: redFlashLight
+      value: 
+      objectReference: {fileID: 1942445462}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: greenFlashLight
+      value: 
+      objectReference: {fileID: 1607608259}
     - target: {fileID: 8326723429473558657, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: m_Name
       value: -----Managers----

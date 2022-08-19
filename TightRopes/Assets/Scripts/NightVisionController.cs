@@ -61,6 +61,9 @@ public class NightVisionController : MonoBehaviour
             volume.weight = 1;
             analogGlitch.enabled = true;
             digitalGlitch.enabled = true;
+            canvas.SetActive(true);
+            //disable blake model
+            //disbale flashlight
         }
         else
         {
@@ -69,12 +72,14 @@ public class NightVisionController : MonoBehaviour
             volume.weight = 0;
             analogGlitch.enabled = false;
             digitalGlitch.enabled = false;
+            canvas.SetActive(false);
+            //enable blake model
+            //enable flashlight
         }
     }
 
     private void OnInteration()
     {
-        canvas.SetActive(true);
         Maincamera.GetComponent<VideoPlayer>().enabled = true;
         Maincamera.GetComponent<PostProcessLayer>().enabled = true;
         ToggleNightVision();

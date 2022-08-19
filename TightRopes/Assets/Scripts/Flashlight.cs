@@ -57,4 +57,9 @@ public class Flashlight : MonoBehaviour
     {
         TurnOnOff();
     }
+
+    public void OutOfBattery()
+    {
+
+    }
 }
