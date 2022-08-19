@@ -8,13 +8,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     private Controls controls;
     public bool isWalking;
-
+    private Battery battery;
     public Vector2 MovementValue { get; private set; }
     public Vector2 LookValue { get; private set; }
     public bool IsSprinting { get; private set; }
     public bool jump { get; private set; }
 
-    public event Action InteractEvent;
+    public event Action replaceFlashlightBattery;
+    public event Action replaceCameraBattery;
     public event Action TorchEvent;
     public event Action CameraEvent;
     public event Action CrouchEvent;
@@ -29,6 +30,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         controls.Player.SetCallbacks(this);
         controls.Player.Enable();
 
+        battery = FindObjectOfType<Battery>();
     }
 
     private void Update()
@@ -71,18 +73,21 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         else jump = false;
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+/*    public void ReplaceFlashlightBattery(InputAction.CallbackContext context)
     {
-        if (context.performed) InteractEvent?.Invoke();
-
-    }
+        
+    }*/
 
     public void OnFlashlight(InputAction.CallbackContext context)
     {
-        //Debug.Log("Flashflight Pressed");
-        if (context.performed)
+
+        if (battery.flashlightHasBattery) 
         {
-            TorchEvent?.Invoke();
+            //Debug.Log("Flashflight Pressed");
+            if (context.performed)
+            {
+                TorchEvent?.Invoke();
+            }
         }
     }
 
@@ -118,5 +123,21 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnProne(InputAction.CallbackContext context)
     {
         if(context.performed) ProneEvent?.Invoke(); 
+    }
+
+    public void OnFlashlightBattery(InputAction.CallbackContext context)
+    {
+        if (battery.Batteries >= 0)
+        {
+            if (context.performed) replaceFlashlightBattery?.Invoke();
+        }
+    }
+
+    public void OnCameraBattery(InputAction.CallbackContext context)
+    {
+        if(battery.Batteries >= 0)
+        {
+            if (context.performed) replaceCameraBattery?.Invoke();
+        }
     }
 }

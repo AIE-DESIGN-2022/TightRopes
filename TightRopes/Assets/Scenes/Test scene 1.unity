@@ -287,6 +287,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &127460752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5301111481467640679, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &261870425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,6 +729,16 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3314890907576177744, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
   m_PrefabInstance: {fileID: 1655393071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261848448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510061866534841487, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1371691074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3207218507614950090, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560368680
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +938,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1645326833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7228575354995701064, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1655393071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -930,10 +950,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3532941340977641858, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -982,18 +998,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blake Player New
       objectReference: {fileID: 0}
-    - target: {fileID: 6805029634577582664, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 895b108e36fc6224aa408bd34328210b, type: 2}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _verticalJump
-      value: 0.011
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _scanLineJitter
-      value: 0.016
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
 --- !u!1 &1673059997
@@ -1026,6 +1030,11 @@ Transform:
   m_Father: {fileID: 1817117198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1739028052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1150065371733489430, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 1655393071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1817117197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,9 +1392,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: redCamera
+      value: 
+      objectReference: {fileID: 1739028052}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: flashlight
       value: 
       objectReference: {fileID: 460552799}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: cameraLight
+      value: 
+      objectReference: {fileID: 1371691074}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: whiteCamera
+      value: 
+      objectReference: {fileID: 1371691074}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1261848448}
+    - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: cameraScreen
+      value: 
+      objectReference: {fileID: 127460752}
     - target: {fileID: 4007281819590986340, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: redFlashLight
       value: 
@@ -1394,6 +1423,18 @@ PrefabInstance:
       propertyPath: greenFlashLight
       value: 
       objectReference: {fileID: 1607608259}
+    - target: {fileID: 6342801822894914355, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: blakeMesh
+      value: 
+      objectReference: {fileID: 1645326833}
+    - target: {fileID: 6342801822894914355, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 460552799}
+    - target: {fileID: 6342801822894914355, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: handCamera
+      value: 
+      objectReference: {fileID: 1261848448}
     - target: {fileID: 8326723429473558657, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: m_Name
       value: -----Managers----

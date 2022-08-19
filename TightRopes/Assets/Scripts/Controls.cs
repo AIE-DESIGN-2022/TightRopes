@@ -51,7 +51,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""FlashlightBattery"",
                     ""type"": ""Value"",
                     ""id"": ""ae6aca9e-06bc-48bd-aad8-2aea4a182ffd"",
                     ""expectedControlType"": ""Button"",
@@ -86,6 +86,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Prone "",
                     ""type"": ""Button"",
                     ""id"": ""e08440cc-0da7-4a03-b36c-46cae6e08420"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CameraBattery"",
+                    ""type"": ""Button"",
+                    ""id"": ""81884032-ddeb-4427-b4c3-02e6730a8a47"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -231,7 +239,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Interact"",
+                    ""action"": ""FlashlightBattery"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -242,7 +250,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
+                    ""action"": ""FlashlightBattery"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -311,6 +319,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Prone "",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a71fbee8-5bf7-4a6c-bc58-171994553bfc"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""CameraBattery"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -334,11 +353,12 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_FlashlightBattery = m_Player.FindAction("FlashlightBattery", throwIfNotFound: true);
         m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Prone = m_Player.FindAction("Prone ", throwIfNotFound: true);
+        m_Player_CameraBattery = m_Player.FindAction("CameraBattery", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -392,11 +412,12 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_FlashlightBattery;
     private readonly InputAction m_Player_Flashlight;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Prone;
+    private readonly InputAction m_Player_CameraBattery;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -405,11 +426,12 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @FlashlightBattery => m_Wrapper.m_Player_FlashlightBattery;
         public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Prone => m_Wrapper.m_Player_Prone;
+        public InputAction @CameraBattery => m_Wrapper.m_Player_CameraBattery;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -431,9 +453,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @FlashlightBattery.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlightBattery;
+                @FlashlightBattery.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlightBattery;
+                @FlashlightBattery.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlightBattery;
                 @Flashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Flashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Flashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
@@ -446,6 +468,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Prone.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProne;
                 @Prone.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProne;
                 @Prone.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProne;
+                @CameraBattery.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraBattery;
+                @CameraBattery.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraBattery;
+                @CameraBattery.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraBattery;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -462,9 +487,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @FlashlightBattery.started += instance.OnFlashlightBattery;
+                @FlashlightBattery.performed += instance.OnFlashlightBattery;
+                @FlashlightBattery.canceled += instance.OnFlashlightBattery;
                 @Flashlight.started += instance.OnFlashlight;
                 @Flashlight.performed += instance.OnFlashlight;
                 @Flashlight.canceled += instance.OnFlashlight;
@@ -477,6 +502,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Prone.started += instance.OnProne;
                 @Prone.performed += instance.OnProne;
                 @Prone.canceled += instance.OnProne;
+                @CameraBattery.started += instance.OnCameraBattery;
+                @CameraBattery.performed += instance.OnCameraBattery;
+                @CameraBattery.canceled += instance.OnCameraBattery;
             }
         }
     }
@@ -505,10 +533,11 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnFlashlightBattery(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnProne(InputAction.CallbackContext context);
+        void OnCameraBattery(InputAction.CallbackContext context);
     }
 }

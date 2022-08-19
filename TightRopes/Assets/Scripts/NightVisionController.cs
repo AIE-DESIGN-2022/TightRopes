@@ -19,6 +19,13 @@ public class NightVisionController : MonoBehaviour
     public PlayerController playerController;
     public AnalogGlitch analogGlitch;
     public DigitalGlitch digitalGlitch;
+
+    public GameObject blakeMesh;
+    public GameObject flashlight;
+    public GameObject handCamera;
+
+    private Battery batteryScript;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -41,6 +48,7 @@ public class NightVisionController : MonoBehaviour
         analogGlitch.enabled = false;
         digitalGlitch.enabled = false;
 
+        batteryScript = FindObjectOfType<Battery>();
     }
 
     private void Update()
@@ -52,30 +60,52 @@ public class NightVisionController : MonoBehaviour
     }
     private void ToggleNightVision()
     {
-        NightVisionOn = !NightVisionOn;
+        if (batteryScript.cameraHasBattery)
+        {
+            NightVisionOn = !NightVisionOn;
 
-        if (NightVisionOn)
-        {
-            video.enabled = true;
-            RenderSettings.ambientLight = boostedLightColour;
-            volume.weight = 1;
-            analogGlitch.enabled = true;
-            digitalGlitch.enabled = true;
-            canvas.SetActive(true);
-            //disable blake model
-            //disbale flashlight
+            if (NightVisionOn)
+            {
+                video.enabled = true;
+                RenderSettings.ambientLight = boostedLightColour;
+                volume.weight = 1;
+                analogGlitch.enabled = true;
+                digitalGlitch.enabled = true;
+                canvas.SetActive(true);
+                batteryScript.usingCamera = true;
+                blakeMesh.SetActive(false);
+                handCamera.SetActive(false);
+                flashlight.SetActive(false);
+
+            }
+            else
+            {
+                video.enabled = false;
+                RenderSettings.ambientLight = defaultLightColour;
+                volume.weight = 0;
+                analogGlitch.enabled = false;
+                digitalGlitch.enabled = false;
+                canvas.SetActive(false);
+                batteryScript.usingCamera = false;
+                blakeMesh.SetActive(true);
+                handCamera.SetActive(true);
+                flashlight.SetActive(true);
+            }
         }
-        else
-        {
-            video.enabled = false;    
-            RenderSettings.ambientLight = defaultLightColour;
-            volume.weight = 0;
-            analogGlitch.enabled = false;
-            digitalGlitch.enabled = false;
-            canvas.SetActive(false);
-            //enable blake model
-            //enable flashlight
-        }
+    }
+
+    public void OutOfPower()
+    {
+        video.enabled = false;
+        RenderSettings.ambientLight = defaultLightColour;
+        volume.weight = 0;
+        analogGlitch.enabled = false;
+        digitalGlitch.enabled = false;
+        canvas.SetActive(false);
+        batteryScript.usingCamera = false;
+        blakeMesh.SetActive(true);
+        handCamera.SetActive(true);
+        flashlight.SetActive(true);
     }
 
     private void OnInteration()

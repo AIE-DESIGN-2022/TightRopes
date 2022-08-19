@@ -10,6 +10,8 @@ public class Battery : MonoBehaviour
     public float flashlightRate;
     public float cameraRate;
 
+    public float Batteries;
+
     public float maxBatteryCharge;
 
     public bool usingFlashlight;
@@ -21,22 +23,35 @@ public class Battery : MonoBehaviour
     public GameObject greenFlashLight;
     public GameObject redFlashLight;
 
+    public GameObject whiteCamera;
+    public GameObject redCamera;
 
+    private InputReader inputReader;
     private NightVisionController nightVisionController;
     public GameObject cameraObject;
+
+    public GameObject cameraLight;
+    public GameObject cameraScreen;
+
+    public bool flashlightHasBattery;
+    public bool cameraHasBattery;
 
     // Start is called before the first frame update
     void Start()
     {
         flashlightBatteryCharge = maxBatteryCharge;
         cameraBatteryCharge = maxBatteryCharge;
-
+        inputReader = FindObjectOfType<InputReader>();
+        inputReader.replaceFlashlightBattery += FlashlightNewBattery;
+        inputReader.replaceCameraBattery += CameraNewBattery;
         flashlightScript = FindObjectOfType<Flashlight>();
         nightVisionController = FindObjectOfType<NightVisionController>();
 
-        FlashlightNewBattery();
+        redFlashLight.SetActive(false);
+        redCamera.SetActive(false);
 
-        CameraNewBattery();
+        cameraHasBattery = true;
+        flashlightHasBattery = true;
     }
 
     // Update is called once per frame
@@ -77,24 +92,39 @@ public class Battery : MonoBehaviour
     {
         greenFlashLight.SetActive(false);
         redFlashLight.SetActive(true);
+        flashlightHasBattery = false;
+        flashlightScript.OutOfPower();
+        usingFlashlight = false;
     }
 
     public void FlashlightNewBattery()
     {
         greenFlashLight.SetActive(true);
         redFlashLight.SetActive(false);
+        flashlightHasBattery = true;
+        Batteries--;
+        flashlightBatteryCharge = maxBatteryCharge;
     }
 
     public void CameraOutOfBattery()
     {
-        //display screen disabled
-        //disble lights on camera
-        //disable input
+        cameraLight.SetActive(false);
+        cameraHasBattery = false;
+        cameraScreen.SetActive(false);
+        redCamera.SetActive(true);
+        whiteCamera.SetActive(false);
+        nightVisionController.OutOfPower();
         //out of battery identifier
     }
 
     public void CameraNewBattery()
     {
-
+        cameraLight.SetActive(true);
+        cameraHasBattery = true;
+        cameraScreen.SetActive(false);
+        redCamera.SetActive(false);
+        whiteCamera.SetActive(true);
+        cameraBatteryCharge = maxBatteryCharge;
+        Batteries--;
     }
 }

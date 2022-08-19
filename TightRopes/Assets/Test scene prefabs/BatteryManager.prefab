@@ -43,14 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038617593c1cba44182ae04e5086e929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightRate: 0
-  cameraRate: 0
-  maxBatteryCharge: 0
+  flashlightRate: 10
+  cameraRate: 5
+  Batteries: 3
+  maxBatteryCharge: 1000
   usingFlashlight: 0
   usingCamera: 0
-  flashlightScript: {fileID: 0}
   flashlight: {fileID: 0}
   greenFlashLight: {fileID: 0}
   redFlashLight: {fileID: 0}
-  nightVisionController: {fileID: 0}
+  whiteCamera: {fileID: 0}
+  redCamera: {fileID: 0}
   cameraObject: {fileID: 0}
+  cameraLight: {fileID: 0}
+  cameraScreen: {fileID: 0}
+  flashlightHasBattery: 0
+  cameraHasBattery: 0
