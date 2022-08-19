@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6563699128427929222}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Jumps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869849893552643122, guid: 0bd76514760dafe4eb2ff5a07e2dfc83, type: 3}
       propertyPath: m_VersionIndex
-      value: 1305
+      value: 1311
       objectReference: {fileID: 0}
     - target: {fileID: 7869849893552643133, guid: 0bd76514760dafe4eb2ff5a07e2dfc83, type: 3}
       propertyPath: m_Mesh
@@ -163,7 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869849893552643122, guid: 0bd76514760dafe4eb2ff5a07e2dfc83, type: 3}
       propertyPath: m_VersionIndex
-      value: 1308
+      value: 1314
       objectReference: {fileID: 0}
     - target: {fileID: 7869849893552643133, guid: 0bd76514760dafe4eb2ff5a07e2dfc83, type: 3}
       propertyPath: m_Mesh
