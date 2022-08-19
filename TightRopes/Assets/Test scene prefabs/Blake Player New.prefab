@@ -427,12 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blake: {fileID: 443871821332295509}
   torch: {fileID: 7269566068981770212}
-  standheight: 2
-  crouchheight: 1.5
-  proneheight: 1
-  isWalking: 0
   isCrouched: 0
-  isMoving: 0
   isCrawling: 0
   leftArm: 0
   rightArm: 0
@@ -451,6 +446,9 @@ MonoBehaviour:
   ledgeChecker: {fileID: 38244113921864366}
   controller: {fileID: 0}
   aniManager: {fileID: 0}
+  jumpController: {fileID: 9100000, guid: 6fa6be112b95b8d419c4d3bbe52391a4, type: 2}
+  climbController: {fileID: 9100000, guid: 9deae4934550a564488ecdfd4d4a9f33, type: 2}
+  vaultController: {fileID: 0}
 --- !u!95 &304700071
 Animator:
   serializedVersion: 3

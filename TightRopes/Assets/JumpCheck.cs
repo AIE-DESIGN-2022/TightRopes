@@ -22,10 +22,13 @@ public class JumpCheck : MonoBehaviour
         {
             GameObject player = other.gameObject;
             PlayerController pController = player.GetComponent<PlayerController>();
+            player.GetComponent<Animator>().runtimeAnimatorController = pController.jumpController;
+
             if(!pController.isCrawling && !pController.isCrouched)
             {
                 AnimationManager blake = FindObjectOfType<AnimationManager>();
                 blake.Jump();
+               player.GetComponent<Animator>().SetTrigger("Jump");
 
             }
         }
