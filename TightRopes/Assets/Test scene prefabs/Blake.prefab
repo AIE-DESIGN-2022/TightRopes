@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 1045030887006847766}
   m_Layer: 0
   m_Name: Blake
-  m_TagString: Untagged
+  m_TagString: BlakeMesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,7 +1797,7 @@ Animator:
   m_GameObject: {fileID: 5541213645830766063}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 87045aa25dc8e08458feb1808724bfc7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

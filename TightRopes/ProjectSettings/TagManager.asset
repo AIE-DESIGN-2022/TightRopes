@@ -8,6 +8,8 @@ TagManager:
   - LedgeChecker
   - Ledge Jump
   - HandCamera
+  - FlashLight
+  - BlakeMesh
   layers:
   - Default
   - TransparentFX
