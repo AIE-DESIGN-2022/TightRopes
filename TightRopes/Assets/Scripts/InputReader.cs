@@ -127,7 +127,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnFlashlightBattery(InputAction.CallbackContext context)
     {
-        if (battery.Batteries > 0)
+        if (battery.batteries > 0)
         {
             if (context.performed) replaceFlashlightBattery?.Invoke();
         }
@@ -135,7 +135,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnCameraBattery(InputAction.CallbackContext context)
     {
-        if(battery.Batteries >= 0)
+        if(battery.batteries >= 0)
         {
             if (context.performed) replaceCameraBattery?.Invoke();
         }

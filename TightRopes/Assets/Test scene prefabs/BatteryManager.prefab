@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlightRate: 10
   cameraRate: 5
-  Batteries: 3
+  batteries: 3
   maxBatteryCharge: 1000
   usingFlashlight: 0
   usingCamera: 0
@@ -59,3 +59,6 @@ MonoBehaviour:
   cameraScreen: {fileID: 0}
   flashlightHasBattery: 0
   cameraHasBattery: 0
+  battery1: {fileID: 0}
+  battery2: {fileID: 0}
+  battery3: {fileID: 0}
