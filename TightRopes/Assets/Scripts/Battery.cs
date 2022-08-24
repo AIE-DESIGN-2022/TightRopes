@@ -10,7 +10,7 @@ public class Battery : MonoBehaviour
     public float flashlightRate;
     public float cameraRate;
 
-    public float Batteries;
+    public float batteries;
 
     public float maxBatteryCharge;
 
@@ -35,6 +35,11 @@ public class Battery : MonoBehaviour
 
     public bool flashlightHasBattery;
     public bool cameraHasBattery;
+
+    public GameObject battery1;
+    public GameObject battery2;
+    public GameObject battery3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -102,8 +107,9 @@ public class Battery : MonoBehaviour
         greenFlashLight.SetActive(true);
         redFlashLight.SetActive(false);
         flashlightHasBattery = true;
-        Batteries--;
+        batteries--;
         flashlightBatteryCharge = maxBatteryCharge;
+        ChangeBatteryAmount();
     }
 
     public void CameraOutOfBattery()
@@ -125,6 +131,35 @@ public class Battery : MonoBehaviour
         redCamera.SetActive(false);
         whiteCamera.SetActive(true);
         cameraBatteryCharge = maxBatteryCharge;
-        Batteries--;
+        batteries--;
+        ChangeBatteryAmount();
+    }
+
+    public void ChangeBatteryAmount()
+    {
+        if(batteries == 3)
+        {
+            battery1.SetActive(true);
+            battery2.SetActive(true);
+            battery3.SetActive(true);
+        }
+        if (batteries == 2)
+        {
+            battery1.SetActive(false);
+            battery2.SetActive(true);
+            battery3.SetActive(true);
+        }
+        if (batteries == 1)
+        {
+            battery1.SetActive(false);
+            battery2.SetActive(false);
+            battery3.SetActive(true);
+        }
+        if (batteries == 0)
+        {
+            battery1.SetActive(false);
+            battery2.SetActive(false);
+            battery3.SetActive(false);
+        }
     }
 }
