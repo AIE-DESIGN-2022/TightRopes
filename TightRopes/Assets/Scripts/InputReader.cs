@@ -12,7 +12,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     public Vector2 LookValue { get; private set; }
     public bool IsSprinting { get; private set; }
-    public bool jump { get; private set; }
+    public bool jump;
 
     public event Action replaceFlashlightBattery;
     public event Action replaceCameraBattery;

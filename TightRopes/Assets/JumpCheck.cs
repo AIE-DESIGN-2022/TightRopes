@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class JumpCheck : MonoBehaviour
 {
+    InputReader inputReader;
     // Start is called before the first frame update
     void Start()
     {
+        inputReader = FindObjectOfType<InputReader>();
         
     }
 
@@ -16,7 +18,7 @@ public class JumpCheck : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
@@ -24,13 +26,21 @@ public class JumpCheck : MonoBehaviour
             PlayerController pController = player.GetComponent<PlayerController>();
             player.GetComponent<Animator>().runtimeAnimatorController = pController.jumpController;
 
-            if(!pController.isCrawling && !pController.isCrouched)
+            if(inputReader.jump &&!pController.isCrawling && !pController.isCrouched)
             {
                 AnimationManager blake = FindObjectOfType<AnimationManager>();
                 blake.Jump();
                player.GetComponent<Animator>().SetTrigger("Jump");
-
+                StartCoroutine(Wait());
+                inputReader.jump = false;
             }
         }
+    }
+
+    IEnumerator Wait()
+    {
+        var clip = inputReader.gameObject.GetComponent<Animator>().runtimeAnimatorController.animationClips;
+        float time = clip.Length;
+        yield return new WaitForSeconds(time);
     }
 }

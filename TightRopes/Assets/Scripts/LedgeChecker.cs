@@ -8,40 +8,31 @@ public class LedgeChecker : MonoBehaviour
     public Transform handPos, standPos;
     public float yOffset = -1f;
     
-
+    InputReader inputReader;
     private Vector3 newHandPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        inputReader = FindObjectOfType<InputReader>();
         newHandPos = new Vector3(handPos.position.x, 
             handPos.position.y - yOffset, handPos.position.z);
     }
 
     // Update is called once per frame
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Hit");
         if (other.CompareTag("LedgeChecker"))
         {
-
+            if (inputReader.jump)
+            {
             var player = other.GetComponentInParent<PlayerController>();
             player.GrabLedge(newHandPos,this);
             other.gameObject.SetActive(false);  
-
-            /*var controller = other.GetComponentInParent<PlayerController>();
-
-            GameObject player = other.transform.parent.gameObject;
-            Animator Blake = player.transform.GetComponentInChildren<Animator>();
-            Blake.SetTrigger("climb");
-            controller.GrabLedge(newHandPos, this);*/
+            }        
         }
     }
-/*    private void OnTriggerExit(Collider other)
-    {
-        var controller = other.GetComponentInParent<PlayerController>();
-        controller.controller.enabled = true;
-    }*/
     public Vector3 GetStandUpPos()
     {
         return standPos.position;
