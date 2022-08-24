@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     private Controls controls;
+    public bool stayProne;
     public bool isWalking;
     private Battery battery;
     public Vector2 MovementValue { get; private set; }
@@ -122,7 +123,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnProne(InputAction.CallbackContext context)
     {
-        if(context.performed) ProneEvent?.Invoke(); 
+        if (!stayProne)
+        {
+            if(context.performed) ProneEvent?.Invoke(); 
+        }
     }
 
     public void OnFlashlightBattery(InputAction.CallbackContext context)
