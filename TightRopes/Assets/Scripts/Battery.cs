@@ -20,9 +20,13 @@ public class Battery : MonoBehaviour
     private Flashlight flashlightScript;
     public GameObject flashlight;
 
-    public GameObject batteryLevel1;
-    public GameObject batteryLevel2;
-    public GameObject batteryLevel3;
+    public GameObject batteryFlashLevel1;
+    public GameObject batteryFlashLevel2;
+    public GameObject batteryFlashLevel3;
+
+    public GameObject cameraBatteryLevel1;
+    public GameObject cameraBatteryLevel2;
+    public GameObject cameraBatteryLevel3;
 
     public Material greenEmissionMat;
     public Material outOfBatteryMat;
@@ -71,7 +75,7 @@ public class Battery : MonoBehaviour
 
             flashlightBatteryCharge -= usageThisFrame;
 
-            Debug.Log("Flashlight Charge Remaining" + flashlightBatteryCharge);
+            //Debug.Log("Flashlight Charge Remaining" + flashlightBatteryCharge);
 
             if(flashlightBatteryCharge <= 0)
             {
@@ -85,7 +89,7 @@ public class Battery : MonoBehaviour
 
             cameraBatteryCharge -= usageThisFrame;
 
-            Debug.Log("Camera Charge Remaining" + cameraBatteryCharge);
+            //Debug.Log("Camera Charge Remaining" + cameraBatteryCharge);
 
             //battery slider
 
@@ -97,27 +101,52 @@ public class Battery : MonoBehaviour
 
         if(flashlightBatteryCharge > 666)
         {
-            batteryLevel1.GetComponent<Renderer>().material = greenEmissionMat;
-            batteryLevel2.GetComponent<Renderer>().material = greenEmissionMat;
-            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel1.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
         }
         else if(flashlightBatteryCharge > 333 && flashlightBatteryCharge < 666)
         {
-            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
-            batteryLevel2.GetComponent<Renderer>().material = greenEmissionMat;
-            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
         }
         else if (flashlightBatteryCharge > 0 && flashlightBatteryCharge < 333)
         {
-            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
-            batteryLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
-            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
         }
         else if (flashlightBatteryCharge <= 0)
         {
-            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
-            batteryLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
-            batteryLevel3.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = outOfBatteryMat;
+        }
+
+        if (cameraBatteryCharge > 666)
+        {
+            cameraBatteryLevel1.SetActive(true);
+            cameraBatteryLevel2.SetActive(true);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge > 333 && cameraBatteryCharge < 666)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(true);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge > 0 && cameraBatteryCharge < 333)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(false);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge <= 0)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(false);
+            cameraBatteryLevel3.SetActive(false);
         }
     }
 
