@@ -14,12 +14,13 @@ public class Flashlight : MonoBehaviour
 
     private Battery batteryScript;
 
-    
+    private AudioSource audioSource;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         /*        light = GameObject.Find("Torch Light");
         */
         animManager = FindObjectOfType<AnimationManager>();
@@ -50,9 +51,11 @@ public class Flashlight : MonoBehaviour
                 flashlightOn = true;
                 /*animManager.FlashOut();*/
                 batteryScript.usingFlashlight = true;
+                audioSource.Play();
             }
             else
             {
+                audioSource.Play();
                 //torch.SetActive(false);
                 flashlightOn = false;
                 batteryScript.usingFlashlight = false;

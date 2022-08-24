@@ -54,3 +54,10 @@ MonoBehaviour:
   blakeRanSoundTimerMin: 10
   blakeRanSoundEnabled: 1
   blakePlayer: {fileID: 0}
+  notmonsterRanSoundsOriginal:
+  - {fileID: 8300000, guid: 9e199deb7bdb78d4aab9109c846929b0, type: 3}
+  - {fileID: 8300000, guid: c1c62307499d7884095f88c9269176b2, type: 3}
+  notmonsterRanSoundTimerMax: 30
+  notmonsterRanSoundTimerMin: 60
+  notmonsterRanSoundEnabled: 1
+  notmonster: {fileID: 0}
