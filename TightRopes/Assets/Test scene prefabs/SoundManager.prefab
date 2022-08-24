@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1727648920567353902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5213669410771515420}
+  - component: {fileID: 7802465166472250238}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5213669410771515420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727648920567353902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7802465166472250238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727648920567353902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc200e67f3d7814ab96a0a015a46766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blakeRanSoundsOriginal:
+  - {fileID: 8300000, guid: c1c62307499d7884095f88c9269176b2, type: 3}
+  - {fileID: 8300000, guid: e8af416de8af87a48a8b4bb1cf2346dd, type: 3}
+  - {fileID: 8300000, guid: 1eb01ba68690ce14b8e4f69874543066, type: 3}
+  - {fileID: 8300000, guid: 757cd45e2e775b14c8c824fcfd64490f, type: 3}
+  - {fileID: 8300000, guid: 9e199deb7bdb78d4aab9109c846929b0, type: 3}
+  - {fileID: 8300000, guid: d26392e8c6662f04985b6f3b88835510, type: 3}
+  blakeRanSoundTimerMax: 0
+  blakeRanSoundTimerMin: 10
+  blakeRanSoundEnabled: 1
+  blakePlayer: {fileID: 0}
