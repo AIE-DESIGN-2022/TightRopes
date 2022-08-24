@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
                 BlakeRanSound();
             }
         }
-        Debug.Log(blakeRanSoundTimer);
+        //Debug.Log(blakeRanSoundTimer);
     }
 
     public void LateUpdate()

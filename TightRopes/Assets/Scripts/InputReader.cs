@@ -24,8 +24,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     private float timer;
     private bool timerStarted;
 
+    public bool isNVactive;
+
     private void Start()
     {
+        isNVactive = false;
         controls = new Controls();
         controls.Player.SetCallbacks(this);
         controls.Player.Enable();
@@ -35,7 +38,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     private void Update()
     {
-        if (timerStarted)
+
+
+            if (timerStarted)
         {
             timer += Time.deltaTime;
         }
@@ -80,7 +85,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnFlashlight(InputAction.CallbackContext context)
     {
+        if (isNVactive)
+        {
 
+        }
         if (battery.flashlightHasBattery) 
         {
             //Debug.Log("Flashflight Pressed");

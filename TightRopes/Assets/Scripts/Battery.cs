@@ -40,6 +40,7 @@ public class Battery : MonoBehaviour
     public GameObject battery2;
     public GameObject battery3;
 
+    
 
     // Start is called before the first frame update
     void Start()

@@ -16,6 +16,10 @@ public class NightVisionController : MonoBehaviour
     InputReader input;
     private VideoPlayer video;
     public GameObject Maincamera;
+
+    public GameObject nightVisionLight1;
+    public GameObject nightVisionLight2;
+
     public GameObject canvas;
     public PlayerController playerController;
     public AnalogGlitch analogGlitch;
@@ -25,6 +29,7 @@ public class NightVisionController : MonoBehaviour
     public GameObject flashlight;
     public GameObject handCamera;
     public Flowchart cameraFlowchart;
+
 
     private Battery batteryScript;
 
@@ -50,11 +55,20 @@ public class NightVisionController : MonoBehaviour
         analogGlitch.enabled = false;
         digitalGlitch.enabled = false;
 
+        nightVisionLight1.SetActive(false);
+        nightVisionLight2.SetActive(false);
+
         batteryScript = FindObjectOfType<Battery>();
     }
 
     private void Update()
     {
+        if (input.isNVactive)
+        {
+            flashlight.SetActive(false);
+        }
+ 
+    
         if (playerController.rightArm)
         {
             input.CameraEvent += OnInteration;
@@ -80,7 +94,12 @@ public class NightVisionController : MonoBehaviour
                 blakeMesh.SetActive(false);
                 handCamera.SetActive(false);
                 flashlight.SetActive(false);
-
+                nightVisionLight1.SetActive(true);
+                nightVisionLight2.SetActive(true);
+                input.isNVactive = true;
+                batteryScript.battery1.SetActive(false);
+                batteryScript.battery2.SetActive(false);
+                batteryScript.battery3.SetActive(false);
             }
             else
             {
@@ -96,6 +115,12 @@ public class NightVisionController : MonoBehaviour
                 blakeMesh.SetActive(true);
                 handCamera.SetActive(true);
                 flashlight.SetActive(true);
+                nightVisionLight1.SetActive(false);
+                nightVisionLight2.SetActive(false);
+                input.isNVactive = false;
+                batteryScript.battery1.SetActive(true);
+                batteryScript.battery2.SetActive(true);
+                batteryScript.battery3.SetActive(true);
             }
         }
     }

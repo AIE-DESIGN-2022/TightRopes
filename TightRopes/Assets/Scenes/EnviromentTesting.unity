@@ -1313,7 +1313,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2566
+  m_Name: pb_Mesh-2542
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1960,6 +1960,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 339feeeaa24aeec42ae560bd57fa1d06, type: 3}
+--- !u!1 &170869872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1192879956341260209, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+  m_PrefabInstance: {fileID: 1701677900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &170869876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170869872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870b9a8f0f82f4f56800cc427bcd1025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scanLineJitter: 0.038
+  _verticalJump: 0
+  _horizontalShake: 0
+  _colorDrift: 0
+  _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
+--- !u!20 &170869877
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170869872}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 4
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!43 &179601540
 Mesh:
   m_ObjectHideFlags: 0
@@ -3940,54 +4005,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1323202336}
     m_Modifications:
-    - target: {fileID: 1462610424, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _intensity
-      value: 0.102
+    - target: {fileID: 911957747, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0.68
       objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.1095165e-27
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0069842217
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0016621388
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.98343444
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.18126453
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 2.3574674e-18
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 1.8441415e-18
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -20.887
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54223357570168134, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314890908479393809, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: handCamera
-      value: 
-      objectReference: {fileID: 209941851}
     - target: {fileID: 4702431393299589756, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4035,22 +4056,6 @@ PrefabInstance:
     - target: {fileID: 4702431393299589759, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
       propertyPath: m_Name
       value: Blake Player New (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _colorDrift
-      value: 0.341
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _verticalJump
-      value: 0.215
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _scanLineJitter
-      value: 0.285
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534599378801709819, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
-      propertyPath: _horizontalShake
-      value: 0.139
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
@@ -8657,6 +8662,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &911957745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 911957745, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 306427712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &912906078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6563699128427929222, guid: 08dbd452c6426384891ab87807068478, type: 3}
@@ -14524,6 +14534,14 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1471019849}
+    - target: {fileID: 6342801822894914355, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: nightVisionLight1
+      value: 
+      objectReference: {fileID: 1793113795}
+    - target: {fileID: 6342801822894914355, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
+      propertyPath: nightVisionLight2
+      value: 
+      objectReference: {fileID: 911957745}
     - target: {fileID: 6787419189271703867, guid: ff9f00de608c8414baa429dee6ff1696, type: 3}
       propertyPath: blakePlayer
       value: 
@@ -14867,6 +14885,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1793113795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1793113795, guid: efdbab758c66dd045b9ab2d27a277da4, type: 3}
+  m_PrefabInstance: {fileID: 306427712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1796043087
 Mesh:
   m_ObjectHideFlags: 0
@@ -16486,7 +16509,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2296
+  m_Name: pb_Mesh-2272
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
