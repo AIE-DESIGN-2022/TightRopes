@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWalking: 0
+  jump: 0
 --- !u!114 &3314890908479393809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blake: {fileID: 443871821332295509}
   torch: {fileID: 7269566068981770212}
+  handCamera: {fileID: 3510061866534841487}
   crouchheight: 1.5
   proneheight: 0.8
   isCrouched: 0

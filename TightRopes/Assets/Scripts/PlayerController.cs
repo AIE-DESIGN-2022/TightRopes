@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Objects")]
     public GameObject Blake;
     public GameObject torch;
+    public GameObject handCamera;
     private float standheight = 2f;
     public float crouchheight = 1.5f;
     public float proneheight = 1f;
@@ -148,6 +149,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!leftArm && rightArm)
         {
+            handCamera.SetActive(false);
             torch.SetActive(true);
             aniManager.FlashOut();
             leftArm = true;
@@ -159,8 +161,8 @@ public class PlayerController : MonoBehaviour
     {
         if (leftArm && !rightArm)
         {
-            Debug.Log(aniManager.animator.GetCurrentAnimatorClipInfo(0).Length);
             leftArm=false;
+            handCamera.SetActive(true);
             aniManager.FlashIn();
             StartCoroutine(aniManager.Wait());
             torch.SetActive(false);
