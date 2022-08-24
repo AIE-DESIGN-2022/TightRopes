@@ -20,8 +20,16 @@ public class Battery : MonoBehaviour
     private Flashlight flashlightScript;
     public GameObject flashlight;
 
-    public GameObject greenFlashLight;
-    public GameObject redFlashLight;
+    public GameObject batteryFlashLevel1;
+    public GameObject batteryFlashLevel2;
+    public GameObject batteryFlashLevel3;
+
+    public GameObject cameraBatteryLevel1;
+    public GameObject cameraBatteryLevel2;
+    public GameObject cameraBatteryLevel3;
+
+    public Material greenEmissionMat;
+    public Material outOfBatteryMat;
 
     public GameObject whiteCamera;
     public GameObject redCamera;
@@ -53,7 +61,6 @@ public class Battery : MonoBehaviour
         flashlightScript = FindObjectOfType<Flashlight>();
         nightVisionController = FindObjectOfType<NightVisionController>();
 
-        redFlashLight.SetActive(false);
         redCamera.SetActive(false);
 
         cameraHasBattery = true;
@@ -69,7 +76,7 @@ public class Battery : MonoBehaviour
 
             flashlightBatteryCharge -= usageThisFrame;
 
-            Debug.Log("Flashlight Charge Remaining" + flashlightBatteryCharge);
+            //Debug.Log("Flashlight Charge Remaining" + flashlightBatteryCharge);
 
             if(flashlightBatteryCharge <= 0)
             {
@@ -83,7 +90,7 @@ public class Battery : MonoBehaviour
 
             cameraBatteryCharge -= usageThisFrame;
 
-            Debug.Log("Camera Charge Remaining" + cameraBatteryCharge);
+            //Debug.Log("Camera Charge Remaining" + cameraBatteryCharge);
 
             //battery slider
 
@@ -92,12 +99,60 @@ public class Battery : MonoBehaviour
                 CameraOutOfBattery();
             }
         }
+
+        if(flashlightBatteryCharge > 666)
+        {
+            batteryFlashLevel1.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if(flashlightBatteryCharge > 333 && flashlightBatteryCharge < 666)
+        {
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if (flashlightBatteryCharge > 0 && flashlightBatteryCharge < 333)
+        {
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if (flashlightBatteryCharge <= 0)
+        {
+            batteryFlashLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryFlashLevel3.GetComponent<Renderer>().material = outOfBatteryMat;
+        }
+
+        if (cameraBatteryCharge > 666)
+        {
+            cameraBatteryLevel1.SetActive(true);
+            cameraBatteryLevel2.SetActive(true);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge > 333 && cameraBatteryCharge < 666)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(true);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge > 0 && cameraBatteryCharge < 333)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(false);
+            cameraBatteryLevel3.SetActive(true);
+        }
+        else if (cameraBatteryCharge <= 0)
+        {
+            cameraBatteryLevel1.SetActive(false);
+            cameraBatteryLevel2.SetActive(false);
+            cameraBatteryLevel3.SetActive(false);
+        }
     }
 
     public void FlashlightOutOfBattery()
     {
-        greenFlashLight.SetActive(false);
-        redFlashLight.SetActive(true);
         flashlightHasBattery = false;
         flashlightScript.OutOfPower();
         usingFlashlight = false;
@@ -105,8 +160,6 @@ public class Battery : MonoBehaviour
 
     public void FlashlightNewBattery()
     {
-        greenFlashLight.SetActive(true);
-        redFlashLight.SetActive(false);
         flashlightHasBattery = true;
         batteries--;
         flashlightBatteryCharge = maxBatteryCharge;

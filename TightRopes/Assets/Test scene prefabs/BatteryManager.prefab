@@ -50,8 +50,11 @@ MonoBehaviour:
   usingFlashlight: 0
   usingCamera: 0
   flashlight: {fileID: 0}
-  greenFlashLight: {fileID: 0}
-  redFlashLight: {fileID: 0}
+  batteryLevel1: {fileID: 0}
+  batteryLevel2: {fileID: 0}
+  batteryLevel3: {fileID: 0}
+  greenEmissionMat: {fileID: 0}
+  outOfBatteryMat: {fileID: 0}
   whiteCamera: {fileID: 0}
   redCamera: {fileID: 0}
   cameraObject: {fileID: 0}
