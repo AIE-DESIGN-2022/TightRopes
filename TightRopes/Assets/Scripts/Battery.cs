@@ -20,8 +20,12 @@ public class Battery : MonoBehaviour
     private Flashlight flashlightScript;
     public GameObject flashlight;
 
-    public GameObject greenFlashLight;
-    public GameObject redFlashLight;
+    public GameObject batteryLevel1;
+    public GameObject batteryLevel2;
+    public GameObject batteryLevel3;
+
+    public Material greenEmissionMat;
+    public Material outOfBatteryMat;
 
     public GameObject whiteCamera;
     public GameObject redCamera;
@@ -52,7 +56,6 @@ public class Battery : MonoBehaviour
         flashlightScript = FindObjectOfType<Flashlight>();
         nightVisionController = FindObjectOfType<NightVisionController>();
 
-        redFlashLight.SetActive(false);
         redCamera.SetActive(false);
 
         cameraHasBattery = true;
@@ -91,12 +94,35 @@ public class Battery : MonoBehaviour
                 CameraOutOfBattery();
             }
         }
+
+        if(flashlightBatteryCharge > 666)
+        {
+            batteryLevel1.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if(flashlightBatteryCharge > 333 && flashlightBatteryCharge < 666)
+        {
+            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryLevel2.GetComponent<Renderer>().material = greenEmissionMat;
+            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if (flashlightBatteryCharge > 0 && flashlightBatteryCharge < 333)
+        {
+            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryLevel3.GetComponent<Renderer>().material = greenEmissionMat;
+        }
+        else if (flashlightBatteryCharge <= 0)
+        {
+            batteryLevel1.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryLevel2.GetComponent<Renderer>().material = outOfBatteryMat;
+            batteryLevel3.GetComponent<Renderer>().material = outOfBatteryMat;
+        }
     }
 
     public void FlashlightOutOfBattery()
     {
-        greenFlashLight.SetActive(false);
-        redFlashLight.SetActive(true);
         flashlightHasBattery = false;
         flashlightScript.OutOfPower();
         usingFlashlight = false;
@@ -104,8 +130,6 @@ public class Battery : MonoBehaviour
 
     public void FlashlightNewBattery()
     {
-        greenFlashLight.SetActive(true);
-        redFlashLight.SetActive(false);
         flashlightHasBattery = true;
         batteries--;
         flashlightBatteryCharge = maxBatteryCharge;
