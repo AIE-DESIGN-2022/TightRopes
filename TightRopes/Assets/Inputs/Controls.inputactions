@@ -38,9 +38,49 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "FlashlightBattery",
                     "type": "Value",
                     "id": "ae6aca9e-06bc-48bd-aad8-2aea4a182ffd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "3d862df4-60af-4767-8cdd-55e6a3cf8b21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Camera",
+                    "type": "Button",
+                    "id": "7aae6993-886e-41d0-8e3b-c7d8f55ed705",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "107cdb66-71ed-4f4b-a94d-07fd6917c9d2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Prone ",
+                    "type": "Button",
+                    "id": "e08440cc-0da7-4a03-b36c-46cae6e08420",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CameraBattery",
+                    "type": "Button",
+                    "id": "81884032-ddeb-4427-b4c3-02e6730a8a47",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -186,7 +226,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Interact",
+                    "action": "FlashlightBattery",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -197,7 +237,84 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Interact",
+                    "action": "FlashlightBattery",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cc05e8e-7ec3-455c-a892-4663cc2b8baf",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "814ccba6-59db-4e21-ae97-80dcf992cfa4",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "167e4858-698a-43b4-b729-02ca11229bc9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b6d131e-17c6-4d88-9b5e-0f63a6b079ff",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e03f520b-58b8-49fd-b6d7-8f591951cea8",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6647040f-65f7-413f-a42b-90fd20bfcdff",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Prone ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a71fbee8-5bf7-4a6c-bc58-171994553bfc",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CameraBattery",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

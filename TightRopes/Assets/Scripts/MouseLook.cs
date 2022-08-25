@@ -35,7 +35,7 @@ public class MouseLook : MonoBehaviour
         {
             yRotation += mouseX;
             yRotation = Mathf.Clamp(yRotation, -CSrange, CSrange);
-            transform.localRotation = Quaternion.Euler(0, yRotation, 0);
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
         }
         else
         {
