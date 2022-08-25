@@ -74,99 +74,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
---- !u!328 &170869874
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192879956341260209}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 86aa8eeed2b674c44a1117e35912213c, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 170869877}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 4
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!20 &170869877
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192879956341260209}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!114 &170869876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192879956341260209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870b9a8f0f82f4f56800cc427bcd1025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scanLineJitter: 0.038
-  _verticalJump: 0
-  _horizontalShake: 0
-  _colorDrift: 0
-  _shader: {fileID: 4800000, guid: da33272284ea24f208f36998880990be, type: 3}
 --- !u!1 &8326723429473558657
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,18 +249,6 @@ PrefabInstance:
       propertyPath: blakeRanSoundTime
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 7802465166472250238, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
-      propertyPath: blakeRanSoundTimerMax
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802465166472250238, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
-      propertyPath: notmonsterRanSoundTimerMax
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802465166472250238, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
-      propertyPath: notmonsterRanSoundTimerMin
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
 --- !u!4 &8803554054318754393 stripped
@@ -432,11 +327,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7185204723297176729, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
   m_PrefabInstance: {fileID: 4301167469932820392}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1192879956341260209 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3115689425907533849, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
-  m_PrefabInstance: {fileID: 4301167469932820392}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5067188415590038644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9070975336559692764, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
@@ -507,10 +397,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatteryManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8895975770649495914, guid: fdeab12ea52af5b42a41a7bf7e44ea40, type: 3}
-      propertyPath: outOfBatteryMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 821d64003151e3f469ad8ddad269583d, type: 2}
     - target: {fileID: 8895975770649495914, guid: fdeab12ea52af5b42a41a7bf7e44ea40, type: 3}
       propertyPath: greenEmissionMat
       value: 
