@@ -80,7 +80,7 @@ public class SoundManager : MonoBehaviour
 
         blakeRanSoundEnabled = true;
 
-        blakeRanSounds = blakeRanSoundsOriginal;
+        blakeRanSounds = new List<AudioClip>(blakeRanSoundsOriginal);
 
         blakeRanSoundTimer = blakeRanSoundTime;
 
@@ -92,7 +92,7 @@ public class SoundManager : MonoBehaviour
 
         notmonsterRanSoundEnabled = true;
 
-        notmonsterRanSounds = notmonsterRanSoundsOriginal;
+        notmonsterRanSounds = new List<AudioClip>(notmonsterRanSoundsOriginal);
 
         notmonsterRanSoundTimer = notmonsterRanSoundTime;
 
@@ -243,7 +243,7 @@ public class SoundManager : MonoBehaviour
 
     public void BlakeRanSoundListReset()
     {
-        blakeRanSounds = blakeRanSoundsOriginal;
+        blakeRanSounds = new List<AudioClip>(blakeRanSoundsOriginal);
         BlakeRanSound();
     }
 
@@ -365,7 +365,7 @@ public class SoundManager : MonoBehaviour
 
     public void NotmonsterRanSoundListReset()
     {
-        notmonsterRanSounds = notmonsterRanSoundsOriginal;
+        notmonsterRanSounds = new List<AudioClip>(notmonsterRanSoundsOriginal);
         NotmonsterRanSound();
     }
 
