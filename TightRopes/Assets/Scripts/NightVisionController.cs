@@ -118,9 +118,7 @@ public class NightVisionController : MonoBehaviour
                 nightVisionLight1.SetActive(false);
                 nightVisionLight2.SetActive(false);
                 input.isNVactive = false;
-                batteryScript.battery1.SetActive(true);
-                batteryScript.battery2.SetActive(true);
-                batteryScript.battery3.SetActive(true);
+                batteryScript.ChangeBatteryAmount();
             }
         }
     }

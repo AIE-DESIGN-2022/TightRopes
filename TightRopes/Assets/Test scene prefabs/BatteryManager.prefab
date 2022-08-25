@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038617593c1cba44182ae04e5086e929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlightBatteryCharge: 0
   flashlightRate: 10
   cameraRate: 5
   batteries: 3
@@ -50,11 +51,14 @@ MonoBehaviour:
   usingFlashlight: 0
   usingCamera: 0
   flashlight: {fileID: 0}
-  batteryLevel1: {fileID: 0}
-  batteryLevel2: {fileID: 0}
-  batteryLevel3: {fileID: 0}
+  batteryFlashLevel1: {fileID: 0}
+  batteryFlashLevel2: {fileID: 0}
+  batteryFlashLevel3: {fileID: 0}
+  cameraBatteryLevel1: {fileID: 0}
+  cameraBatteryLevel2: {fileID: 0}
+  cameraBatteryLevel3: {fileID: 0}
   greenEmissionMat: {fileID: 0}
-  outOfBatteryMat: {fileID: 0}
+  outOfBatteryMat: {fileID: -7805965318761107941, guid: f5c74402c02067446a44ea1e650cc6b3, type: 3}
   whiteCamera: {fileID: 0}
   redCamera: {fileID: 0}
   cameraObject: {fileID: 0}
