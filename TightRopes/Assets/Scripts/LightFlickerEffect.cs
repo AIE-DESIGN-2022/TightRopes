@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 // Written by Steve Streeting 2017
 // License: CC0 Public Domain http://creativecommons.org/publicdomain/zero/1.0/
@@ -13,6 +14,7 @@ using System.Collections.Generic;
 /// </summary>
 public class LightFlickerEffect : MonoBehaviour
 {
+    Battery battery;
     [Tooltip("External light to flicker; you can leave this null if you attach script to a light")]
     public new Light[] lights;
     public List<float> intensities;
@@ -48,31 +50,82 @@ public class LightFlickerEffect : MonoBehaviour
         {
             intensities.Add(lights[i].intensity);
         }
-        // External or internal light?
+        battery = FindObjectOfType<Battery>();
     }
 
     void Update()
     {
         //Chance stuff to start
-        if (running)
-        { 
+        if ((battery.flashlightBatteryCharge <= battery.maxBatteryCharge/2))
+        {
+            running = true;
             //Chance to stop
-
-            while (smoothQueue.Count >= smoothing)
+            if (running)
             {
-                lastSum -= smoothQueue.Dequeue();
+                while (smoothQueue.Count >= smoothing)
+                {
+                    lastSum -= smoothQueue.Dequeue();
+                }
+
+                // Generate random new item, calculate new average
+                float newVal = Random.Range(minIntensity, maxIntensity);
+                smoothQueue.Enqueue(newVal);
+                lastSum += newVal;
+
+                // Calculate new smoothed average
+                foreach (Light light in lights)
+                {
+                    light.intensity = lastSum / (float)smoothQueue.Count;
+                }
             }
 
-            // Generate random new item, calculate new average
-            float newVal = Random.Range(minIntensity, maxIntensity);
-            smoothQueue.Enqueue(newVal);
-            lastSum += newVal;
-
-            // Calculate new smoothed average
-            foreach (Light light in lights)
+        }
+        else if((battery.flashlightBatteryCharge <= battery.maxBatteryCharge / 4))
+        {
+            if (running)
             {
-                light.intensity = lastSum / (float)smoothQueue.Count;
+                while (smoothQueue.Count >= smoothing)
+                {
+                    lastSum -= smoothQueue.Dequeue();
+                }
+
+                // Generate random new item, calculate new average
+                float newVal = Random.Range(0, minIntensity);
+                smoothQueue.Enqueue(newVal);
+                lastSum += newVal;
+
+                // Calculate new smoothed average
+                foreach (Light light in lights)
+                {
+                    light.intensity = lastSum / (float)smoothQueue.Count;
+                }
             }
+        }
+        else if ((battery.flashlightBatteryCharge <= battery.maxBatteryCharge / 10))
+        {
+            if (running)
+            {
+                StartCoroutine(LightsOut());
+                while (smoothQueue.Count >= smoothing)
+                {
+                    lastSum -= smoothQueue.Dequeue();
+                }
+
+                // Generate random new item, calculate new average
+                float newVal = Random.Range(0, minIntensity);
+                smoothQueue.Enqueue(newVal);
+                lastSum += newVal;
+
+                // Calculate new smoothed average
+                foreach (Light light in lights)
+                {
+                    light.intensity = lastSum / (float)smoothQueue.Count;
+                }
+            }
+        }
+        else
+        {
+            StopFlicker();
         }
        
     } 
@@ -84,5 +137,13 @@ public class LightFlickerEffect : MonoBehaviour
             lights[i].intensity = intensities[i];
         }
     }
-
+    public IEnumerator LightsOut()
+    {
+        float random = Random.Range(0,10);
+        if(random == 10)
+        {
+            battery.flashlightBatteryCharge = 0;
+            yield return new WaitForSeconds(random);
+        }
+    }
 }

@@ -46,7 +46,7 @@ public class SoundManager : MonoBehaviour
     [Header("NotMonster Sound")]
 
     public List<AudioClip> notmonsterRanSoundsOriginal;
-    private List<AudioClip> notmonsterRanSounds;
+    public List<AudioClip> notmonsterRanSounds;
 
     private float notmonsterRanSoundTime;
     private float notmonsterRanSoundTimer;
