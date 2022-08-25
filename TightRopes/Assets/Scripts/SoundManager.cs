@@ -16,13 +16,32 @@ public class SoundManager : MonoBehaviour
 
     public bool blakeRanSoundEnabled;
 
-    private bool blakeAudioIsPLaying;
+    private bool blakeRanAudioIsPLaying;
 
-    private AudioClip blakeSound;
+    private bool crouchWalkPlaying;
+    private bool walkPlaying;
+    private bool proneWalkPlaying;
 
-    private AudioSource blakeSoundSource;
+    private AudioClip blakeRanSound;
+    private AudioClip blakeActionSound;
+
+
+    public List<AudioClip> blakeCrouchWalkingSounds;
+    public List<AudioClip> blakeProneWalkingSounds;
+    public List<AudioClip> blakeWalkingSounds;
+    public List<AudioClip> jumpSounds;
+    public List<AudioClip> vaultSounds;
+    public List<AudioClip> climbSounds;
+
+
+    private AudioSource blakeRanSoundSource;
+    private AudioSource blakeActionSoundSource;
 
     public GameObject blakePlayer;
+
+    public GameObject blake;
+
+    private Animator blakeAnimator;
 
     [Header("NotMonster Sound")]
 
@@ -47,7 +66,17 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blakeSoundSource = blakePlayer.GetComponent<AudioSource>();
+        walkPlaying = false;
+
+        proneWalkPlaying = false;
+
+        crouchWalkPlaying = false;
+
+        blakeAnimator = blake.GetComponent<Animator>();
+
+        blakeActionSoundSource = blake.GetComponent<AudioSource>();
+
+        blakeRanSoundSource = blakePlayer.GetComponent<AudioSource>();
 
         blakeRanSoundEnabled = true;
 
@@ -55,7 +84,7 @@ public class SoundManager : MonoBehaviour
 
         blakeRanSoundTimer = blakeRanSoundTime;
 
-        blakeAudioIsPLaying = false;
+        blakeRanAudioIsPLaying = false;
 
         BlakeRanSoundReset();
 
@@ -94,15 +123,88 @@ public class SoundManager : MonoBehaviour
                 NotmonsterRanSound();
             }
         }
+
+        if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running Jump"))
+        {
+            BlakeSounds("Jump");
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Vault"))
+        {
+            BlakeSounds("Vault");
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Climb"))
+        {
+            BlakeSounds("Climb");
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Standing torch idle 0 1"))
+        {
+            PlayBlakeActionAudio(null, null);
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Crouch Idle 0"))
+        {
+            PlayBlakeActionAudio(null, null);
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Prone Idle 0"))
+        {
+            PlayBlakeActionAudio(null, null);
+            crouchWalkPlaying = false;
+            proneWalkPlaying = false;
+            walkPlaying = false;
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Crouch Walk 0"))
+        {
+            if (!crouchWalkPlaying)
+            {
+                crouchWalkPlaying = true;
+                proneWalkPlaying = false;
+                walkPlaying = false;
+                BlakeSounds("Crouch Walking");
+            }
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Crawl 0"))
+        {
+            if (!proneWalkPlaying)
+            {
+                crouchWalkPlaying = false;
+                proneWalkPlaying = true;
+                walkPlaying = false;
+                BlakeSounds("Prone Walking");
+            }
+        }
+        else if (blakeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Torch walking 0"))
+        {
+            if (!walkPlaying)
+            {
+                crouchWalkPlaying = false;
+                proneWalkPlaying = false;
+                walkPlaying = true;
+                BlakeSounds("Walking");
+            }
+        }
     }
 
     public void LateUpdate()
     {
-        if (blakeAudioIsPLaying)
+        if (blakeRanAudioIsPLaying)
         {
             if (!blakeRanSoundEnabled)
             {
-                if (!blakeSoundSource.isPlaying)
+                if (!blakeRanSoundSource.isPlaying)
                 {
                     blakeRanSoundEnabled = true;
                     BlakeRanSoundReset();
@@ -129,8 +231,8 @@ public class SoundManager : MonoBehaviour
         {
             int rand = Random.Range(0, blakeRanSounds.Count);
 
-            blakeSound = blakeRanSounds[rand];
-            PlayBlakeAudio(blakeSound);
+            blakeRanSound = blakeRanSounds[rand];
+            PlayBlakeRanAudio(blakeRanSound);
             blakeRanSounds.Remove(blakeRanSounds[rand]);
         }
         else
@@ -154,11 +256,11 @@ public class SoundManager : MonoBehaviour
         blakeRanSoundTimer = blakeRanSoundTime;
     }
 
-    public void PlayBlakeAudio(AudioClip sound)
+    public void PlayBlakeRanAudio(AudioClip sound)
     {
-        blakeSoundSource.clip = sound;
-        blakeSoundSource.Play();
-        blakeAudioIsPLaying = true;
+        blakeRanSoundSource.clip = sound;
+        blakeRanSoundSource.Play();
+        blakeRanAudioIsPLaying = true;
     }
 
     public void DisableBlakeRanSound()
@@ -170,6 +272,72 @@ public class SoundManager : MonoBehaviour
     {
         blakeRanSoundEnabled = true;
         BlakeRanSoundReset();
+    }
+
+    public void BlakeSounds(string action)
+    {
+        if(action == "Crouch Walking")
+        {
+            int rand = Random.Range(0, blakeCrouchWalkingSounds.Count);
+
+            blakeActionSound = blakeCrouchWalkingSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+        else if (action == "Prone Walking")
+        {
+            int rand = Random.Range(0, blakeProneWalkingSounds.Count);
+
+            blakeActionSound = blakeProneWalkingSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+        else if (action == "Walking")
+        {
+            int rand = Random.Range(0, blakeWalkingSounds.Count);
+
+            blakeActionSound = blakeWalkingSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+        else if (action == "Jump")
+        {
+            int rand = Random.Range(0, jumpSounds.Count);
+
+            blakeActionSound = jumpSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+        else if (action == "Vault")
+        {
+            int rand = Random.Range(0, vaultSounds.Count);
+
+            blakeActionSound = vaultSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+        else if (action == "Climb")
+        {
+            int rand = Random.Range(0, climbSounds.Count);
+
+            blakeActionSound = climbSounds[rand];
+            PlayBlakeActionAudio(blakeActionSound, action);
+        }
+    }
+
+    public void PlayBlakeActionAudio(AudioClip sound, string action)
+    {
+        if(sound == null)
+        {
+            blakeActionSoundSource.clip = null;
+        }
+        else if(action == "Jump" | action == "Climb" | action == "Vault")
+        {
+            blakeActionSoundSource.clip = sound;
+            blakeActionSoundSource.loop = false;
+            blakeActionSoundSource.Play();
+        }
+        else
+        {
+            blakeActionSoundSource.clip = sound;
+            blakeActionSoundSource.loop = true;
+            blakeActionSoundSource.Play();
+        }
     }
 
 
