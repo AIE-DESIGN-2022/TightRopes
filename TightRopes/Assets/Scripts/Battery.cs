@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
-    private float flashlightBatteryCharge;
+    public float flashlightBatteryCharge;
     private float cameraBatteryCharge;
 
     public float flashlightRate;

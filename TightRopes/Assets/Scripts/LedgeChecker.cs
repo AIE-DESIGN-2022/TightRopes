@@ -22,7 +22,6 @@ public class LedgeChecker : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Hit");
         if (other.CompareTag("LedgeChecker"))
         {
             if (inputReader.jump)
