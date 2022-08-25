@@ -53,7 +53,20 @@ MonoBehaviour:
   blakeRanSoundTimerMax: 0
   blakeRanSoundTimerMin: 10
   blakeRanSoundEnabled: 1
+  blakeCrouchWalkingSounds:
+  - {fileID: 8300000, guid: e180513ba2523d149b9751bdd9333be3, type: 3}
+  blakeProneWalkingSounds:
+  - {fileID: 8300000, guid: c47c21b89a1f6e849b6f0658526de1a1, type: 3}
+  blakeWalkingSounds:
+  - {fileID: 8300000, guid: 14a396b1562834718b2d52b9c4639264, type: 3}
+  jumpSounds:
+  - {fileID: 0}
+  vaultSounds:
+  - {fileID: 0}
+  climbSounds:
+  - {fileID: 0}
   blakePlayer: {fileID: 0}
+  blake: {fileID: 0}
   notmonsterRanSoundsOriginal:
   - {fileID: 8300000, guid: 9e199deb7bdb78d4aab9109c846929b0, type: 3}
   - {fileID: 8300000, guid: c1c62307499d7884095f88c9269176b2, type: 3}
