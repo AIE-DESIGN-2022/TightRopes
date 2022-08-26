@@ -110,10 +110,7 @@ public class PlayerController : MonoBehaviour
 
         //sprint
         //jump
-        if (inputReader.jump && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+       
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);
     }
