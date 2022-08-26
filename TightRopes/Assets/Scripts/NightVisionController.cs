@@ -17,6 +17,8 @@ public class NightVisionController : MonoBehaviour
     private VideoPlayer video;
     public GameObject Maincamera;
 
+    private SoundManager soundManager;
+
     public GameObject nightVisionLight1;
     public GameObject nightVisionLight2;
 
@@ -36,6 +38,8 @@ public class NightVisionController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
+
         canvas.SetActive(false);
         playerController = FindObjectOfType<PlayerController>();
         Maincamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -100,6 +104,7 @@ public class NightVisionController : MonoBehaviour
                 batteryScript.battery1.SetActive(false);
                 batteryScript.battery2.SetActive(false);
                 batteryScript.battery3.SetActive(false);
+                soundManager.NVOn();
             }
             else
             {
@@ -119,6 +124,7 @@ public class NightVisionController : MonoBehaviour
                 nightVisionLight2.SetActive(false);
                 input.isNVactive = false;
                 batteryScript.ChangeBatteryAmount();
+                soundManager.NVOff();
             }
         }
     }

@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    [Header("Night Vision")]
+    private bool nightVisionOn;
+
+    public AudioClip nVOnClip;
+    public AudioClip nVOffClip;
+    public AudioClip nVIsRunningClip;
+
+    private AudioSource nVSource;
+
+    private GameObject mainCamera;
+
     [Header("Blake Sound")]
     public List<AudioClip> blakeRanSoundsOriginal;
     private List<AudioClip> blakeRanSounds;
@@ -32,7 +43,6 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> jumpSounds;
     public List<AudioClip> vaultSounds;
     public List<AudioClip> climbSounds;
-
 
     private AudioSource blakeRanSoundSource;
     private AudioSource blakeActionSoundSource;
@@ -66,6 +76,8 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        nVSource = mainCamera.GetComponent<AudioSource>();
         walkPlaying = false;
 
         proneWalkPlaying = false;
@@ -394,5 +406,28 @@ public class SoundManager : MonoBehaviour
     {
         notmonsterRanSoundEnabled = true;
         NotmonsterRanSoundReset();
+    }
+
+    public void NVOn()
+    {
+        nVSource.clip = nVOnClip;
+        nVSource.loop = false;
+        nVSource.Play();
+        StartCoroutine(Wait(nVSource));
+        nVSource.clip = nVIsRunningClip;
+        nVSource.Play();
+        nVSource.loop = true;
+    }
+    public void NVOff()
+    {
+        nVSource.clip = nVOffClip;
+        nVSource.Play();
+        nVSource.loop = false;
+    }
+
+    public IEnumerator Wait(AudioSource audioSource)
+    {
+        float time = audioSource.clip.length;
+        yield return new WaitForSeconds(time);
     }
 }
