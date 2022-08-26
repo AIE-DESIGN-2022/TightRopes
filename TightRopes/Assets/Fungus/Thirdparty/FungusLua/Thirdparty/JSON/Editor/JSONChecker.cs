@@ -50,9 +50,7 @@ public class JSONChecker : EditorWindow {
 	static void Init() {
 		GetWindow(typeof(JSONChecker));
 	}
-
-    [System.Obsolete]
-    void OnGUI() {
+	void OnGUI() {
 		JSON = EditorGUILayout.TextArea(JSON);
 		GUI.enabled = !string.IsNullOrEmpty(JSON);
 		if(GUILayout.Button("Check JSON")) {

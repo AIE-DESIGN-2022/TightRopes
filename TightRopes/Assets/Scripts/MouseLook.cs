@@ -11,12 +11,16 @@ public class MouseLook : MonoBehaviour
     public GameObject mcamera;
     public GameObject spine1;
 
+    public float CSrange;
     float xRotation;
+    float yRotation;
+    public bool inCutscene;
     // Start is called before the first frame update
     void Start()
     {
         inputReader = player.GetComponent<InputReader>();
         Cursor.lockState = CursorLockMode.Locked;
+        inCutscene = false;
     }
 
     // Update is called once per frame
@@ -27,7 +31,16 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -45f, 45f);
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        player.transform.Rotate(Vector3.up * mouseX);
+       if (inCutscene)
+        {
+            yRotation += mouseX;
+            yRotation = Mathf.Clamp(yRotation, -CSrange, CSrange);
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        }
+        else
+        {
+            player.transform.Rotate(Vector3.up * mouseX);
+        }
         
     }
     private void LateUpdate()
