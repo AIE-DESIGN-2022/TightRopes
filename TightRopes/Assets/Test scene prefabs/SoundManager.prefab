@@ -78,15 +78,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 380d448e458f4f44182c5e6140091ad1, type: 3}
   - {fileID: 8300000, guid: a03f7672c7916fd42bdf5c8460103aae, type: 3}
   - {fileID: 8300000, guid: c3b85bf5051cbca45a375460f3b42e1a, type: 3}
-  notmonsterRanSounds:
-  - {fileID: 8300000, guid: dd7f3163d63104641bf1727a4ee128c0, type: 3}
-  - {fileID: 8300000, guid: 18582a436ddc4ca4493a86fb7e17ec25, type: 3}
-  - {fileID: 8300000, guid: 67dd364eedec58a4dbd79311bb1013f4, type: 3}
-  - {fileID: 8300000, guid: c7f9960d3ef1e0a40b3f1b4ba6326e3f, type: 3}
-  - {fileID: 8300000, guid: 0a47767ef2dfdf94a86d4ac5ada48b11, type: 3}
-  - {fileID: 8300000, guid: 380d448e458f4f44182c5e6140091ad1, type: 3}
-  - {fileID: 8300000, guid: a03f7672c7916fd42bdf5c8460103aae, type: 3}
-  - {fileID: 8300000, guid: c3b85bf5051cbca45a375460f3b42e1a, type: 3}
+  notmonsterRanSounds: []
   notmonsterRanSoundTimerMax: 10
   notmonsterRanSoundTimerMin: 15
   notmonsterRanSoundEnabled: 1
