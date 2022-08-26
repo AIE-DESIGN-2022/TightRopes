@@ -249,6 +249,14 @@ PrefabInstance:
       propertyPath: blakeRanSoundTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7802465166472250238, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
+      propertyPath: blakeRanSoundsOriginal.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802465166472250238, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
+      propertyPath: blakeRanSoundsOriginal.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e087a6f1cab03454d9f0906f84e4a577, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2831a1842315e434bb699a741c95b9b2, type: 3}
 --- !u!4 &8803554054318754393 stripped
@@ -293,11 +301,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -65
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 7185204723297176729, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
       propertyPath: m_RootOrder
@@ -434,6 +442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatteryManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8895975770649495914, guid: fdeab12ea52af5b42a41a7bf7e44ea40, type: 3}
+      propertyPath: outOfBatteryMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 821d64003151e3f469ad8ddad269583d, type: 2}
     - target: {fileID: 8895975770649495914, guid: fdeab12ea52af5b42a41a7bf7e44ea40, type: 3}
       propertyPath: greenEmissionMat
       value: 

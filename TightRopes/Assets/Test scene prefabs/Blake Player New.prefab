@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecfa9d85c09d3140b844021df35347d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSense: 25
+  mSense: 8
   player: {fileID: 4702431393299589759}
   mcamera: {fileID: 912036483400838900}
   spine1: {fileID: 1444520550930402659}
