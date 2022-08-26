@@ -263,6 +263,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2392654881606855561}
     m_Modifications:
+    - target: {fileID: 2985925671926230253, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_Name
+      value: BatteryCharge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889991694317248777, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64
+      objectReference: {fileID: 0}
     - target: {fileID: 7185204723297176729, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -315,7 +351,8 @@ PrefabInstance:
       propertyPath: cameraFlowchart
       value: 
       objectReference: {fileID: 359303793733485076}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1158061191858939456, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24337e2a0421cf84f9e094b3623630eb, type: 3}
 --- !u!1 &6342801822894914354 stripped
 GameObject:

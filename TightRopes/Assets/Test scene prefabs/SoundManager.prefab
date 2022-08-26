@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc200e67f3d7814ab96a0a015a46766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nVOnClip: {fileID: 8300000, guid: 6e261196a9d5d49448570509509eac02, type: 3}
+  nVOffClip: {fileID: 8300000, guid: dbf6c66c891cf9646b5a6a7323b073d2, type: 3}
+  nVIsRunningClip: {fileID: 8300000, guid: 52ff9d46ada30e84caa51d15dbcb2319, type: 3}
   blakeRanSoundsOriginal:
   - {fileID: 8300000, guid: 283fd320161fa384f9b3e253a0041d54, type: 3}
   - {fileID: 8300000, guid: 6ad82efec43efbe4eabaae8a7dbe83bf, type: 3}
@@ -93,7 +96,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8a9c84784944e974ab6347b76cf7a4c2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
