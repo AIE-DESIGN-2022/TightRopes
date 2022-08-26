@@ -30,4 +30,9 @@ public class CutsceneLock : MonoBehaviour
     {
         loadScene.allowSceneActivation = true;
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
