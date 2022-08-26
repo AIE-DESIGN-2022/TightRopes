@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnviromentTesting.unity
     guid: 753cab755b5af5e42bb31cba32639b2b
+  - enabled: 1
+    path: Assets/Scenes/Moiuntain EnvironMent2.unity
+    guid: 886c29d545aac904e9874de5693178e5
+  - enabled: 1
+    path: Assets/Scenes/SimonDeath.unity
+    guid: 921e6e54f865e734fadcef894cae22f2
   m_configObjects: {}

@@ -26418,6 +26418,7 @@ GameObject:
   - component: {fileID: 893794858}
   - component: {fileID: 893794869}
   - component: {fileID: 893794868}
+  - component: {fileID: 893794870}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -26546,6 +26547,7 @@ MonoBehaviour:
   - {fileID: 893794831}
   - {fileID: 893794857}
   - {fileID: 893794869}
+  - {fileID: 893794870}
   suppressAllAutoSelections: 0
 --- !u!114 &893794805
 MonoBehaviour:
@@ -26563,7 +26565,7 @@ MonoBehaviour:
   scrollPos: {x: 60.801018, y: 94.03165}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 280
+  blockViewHeight: 517
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -26574,7 +26576,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 893794804}
   selectedCommands:
-  - {fileID: 893794814}
+  - {fileID: 893794870}
   variables: []
   description: 
   stepPause: 0
@@ -26654,7 +26656,7 @@ MonoBehaviour:
   indentLevel: 0
   duration: 3
   targetAlpha: 1
-  waitUntilFinished: 1
+  waitUntilFinished: 0
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 20
@@ -27141,12 +27143,12 @@ MonoBehaviour:
   character: {fileID: 1995722522}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
-  showAlways: 1
+  showAlways: 0
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
+  fadeWhenDone: 0
+  waitForClick: 0
+  stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
 --- !u!114 &893794832
@@ -27953,6 +27955,34 @@ MonoBehaviour:
   stopVoiceover: 0
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &893794870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893794801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 67
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 164188439}
+  targetComponentAssemblyName: CutsceneLock, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: CutsceneLock
+  targetMethod: LoadScene
+  targetMethodText: 'LoadScene (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!1 &1128841206
 GameObject:
   m_ObjectHideFlags: 0
