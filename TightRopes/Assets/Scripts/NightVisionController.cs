@@ -69,10 +69,9 @@ public class NightVisionController : MonoBehaviour
         }
  
     
-        if (playerController.rightArm)
-        {
+    
             input.CameraEvent += OnInteration;
-        }
+    
     }
     public void ToggleNightVision()
     {
@@ -139,6 +138,7 @@ public class NightVisionController : MonoBehaviour
 
     private void OnInteration()
     {
+        blakeMesh.GetComponentInParent<Animator>().SetBool("FlashIn",true);
         cameraFlowchart.SendFungusMessage("Camera");        
     }
 

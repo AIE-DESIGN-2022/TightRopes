@@ -79,11 +79,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         else jump = false;
     }
 
-/*    public void ReplaceFlashlightBattery(InputAction.CallbackContext context)
-    {
-        
-    }*/
-
     public void OnFlashlight(InputAction.CallbackContext context)
     {
         if (isNVactive)
@@ -102,31 +97,12 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnCamera(InputAction.CallbackContext context)
     {
-        if (context.performed) CameraEvent?.Invoke(); Debug.Log("Let there be light");
+        if (context.performed) CameraEvent?.Invoke(); 
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if(context.performed) CrouchEvent?.Invoke();
-
-    /*    if (context.performed)
-        {
-            timer = 0;
-            timerStarted = true;
-        }
-        else if (context.canceled)
-        {
-            timerStarted = false;
-            if (timer < 1f)
-            {
-                CrouchEvent?.Invoke();
-            }
-            else
-            {
-                // prone event;
-                ProneEvent?.Invoke();
-            }
-        }*/
+        if (context.performed) CrouchEvent?.Invoke();
     }
 
     public void OnProne(InputAction.CallbackContext context)
