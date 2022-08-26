@@ -56,7 +56,7 @@ public class LightFlickerEffect : MonoBehaviour
     void Update()
     {
         //Chance stuff to start
-        if ((battery.flashlightBatteryCharge <= battery.maxBatteryCharge/2))
+        if ((battery.flashlightBatteryCharge <= battery.maxBatteryCharge/2) && (battery.flashlightBatteryCharge > battery.maxBatteryCharge / 4))
         {
             running = true;
             //Chance to stop
@@ -99,27 +99,14 @@ public class LightFlickerEffect : MonoBehaviour
                 {
                     light.intensity = lastSum / (float)smoothQueue.Count;
                 }
-            }
-        }
-        else if ((battery.flashlightBatteryCharge <= battery.maxBatteryCharge / 10))
-        {
-            if (running)
-            {
-                StartCoroutine(LightsOut());
-                while (smoothQueue.Count >= smoothing)
+                if((battery.flashlightBatteryCharge <= battery.maxBatteryCharge / 5))
                 {
-                    lastSum -= smoothQueue.Dequeue();
-                }
-
-                // Generate random new item, calculate new average
-                float newVal = Random.Range(0, minIntensity);
-                smoothQueue.Enqueue(newVal);
-                lastSum += newVal;
-
-                // Calculate new smoothed average
-                foreach (Light light in lights)
-                {
-                    light.intensity = lastSum / (float)smoothQueue.Count;
+                    float random = Random.Range(0, 10);
+                    if (random == 10)
+                    {
+                        battery.flashlightBatteryCharge = 0;
+                        Debug.Log(random);
+                    }
                 }
             }
         }
@@ -135,15 +122,6 @@ public class LightFlickerEffect : MonoBehaviour
         for (int i = 0; i < lights.Length; i++)
         {
             lights[i].intensity = intensities[i];
-        }
-    }
-    public IEnumerator LightsOut()
-    {
-        float random = Random.Range(0,10);
-        if(random == 10)
-        {
-            battery.flashlightBatteryCharge = 0;
-            yield return new WaitForSeconds(random);
         }
     }
 }
