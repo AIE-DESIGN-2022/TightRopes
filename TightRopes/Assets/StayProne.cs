@@ -31,11 +31,7 @@ public class StayProne : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if (player.isCrawling)
-            {
-                other.gameObject.GetComponent<InputReader>().stayProne = false;
-            }
+            other.gameObject.GetComponent<InputReader>().stayProne = false;
         }
     }
 }

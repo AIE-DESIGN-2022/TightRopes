@@ -64,12 +64,9 @@ MonoBehaviour:
   blakeWalkingSounds:
   - {fileID: 8300000, guid: bb13076288280334c83cd868938f8cfe, type: 3}
   - {fileID: 8300000, guid: ceee7d4389a010649bd474bd3c5b2bb0, type: 3}
-  jumpSounds:
-  - {fileID: 0}
-  vaultSounds:
-  - {fileID: 0}
-  climbSounds:
-  - {fileID: 0}
+  jumpSounds: []
+  vaultSounds: []
+  climbSounds: []
   blakePlayer: {fileID: 0}
   blake: {fileID: 0}
   notmonsterRanSoundsOriginal:
@@ -81,7 +78,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 380d448e458f4f44182c5e6140091ad1, type: 3}
   - {fileID: 8300000, guid: a03f7672c7916fd42bdf5c8460103aae, type: 3}
   - {fileID: 8300000, guid: c3b85bf5051cbca45a375460f3b42e1a, type: 3}
-  notmonsterRanSounds: []
+  notmonsterRanSounds:
+  - {fileID: 8300000, guid: dd7f3163d63104641bf1727a4ee128c0, type: 3}
+  - {fileID: 8300000, guid: 18582a436ddc4ca4493a86fb7e17ec25, type: 3}
+  - {fileID: 8300000, guid: 67dd364eedec58a4dbd79311bb1013f4, type: 3}
+  - {fileID: 8300000, guid: c7f9960d3ef1e0a40b3f1b4ba6326e3f, type: 3}
+  - {fileID: 8300000, guid: 0a47767ef2dfdf94a86d4ac5ada48b11, type: 3}
+  - {fileID: 8300000, guid: 380d448e458f4f44182c5e6140091ad1, type: 3}
+  - {fileID: 8300000, guid: a03f7672c7916fd42bdf5c8460103aae, type: 3}
+  - {fileID: 8300000, guid: c3b85bf5051cbca45a375460f3b42e1a, type: 3}
   notmonsterRanSoundTimerMax: 10
   notmonsterRanSoundTimerMin: 15
   notmonsterRanSoundEnabled: 1
@@ -98,7 +103,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8a9c84784944e974ab6347b76cf7a4c2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
