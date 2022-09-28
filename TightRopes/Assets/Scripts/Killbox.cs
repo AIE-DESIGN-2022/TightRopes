@@ -16,7 +16,7 @@ public class Killbox : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OntTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Player")
         {
